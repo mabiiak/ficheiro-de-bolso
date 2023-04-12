@@ -2,6 +2,10 @@
 
 Esse site lhe permitirá criar fichas e visualizar seus personagens de D&D.
 
+## Layout
+[Figma](https://www.figma.com/file/5eJ24HJORb4NEoqQMskwJs/ficha?node-id=0%3A1&t=a9HHqZ4nalaEcM0k-1)
+
+
 ## Funcionalidades em desenvolvimento:
     - Criar personagem
 
