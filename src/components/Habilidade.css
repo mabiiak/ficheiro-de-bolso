@@ -1,0 +1,33 @@
+#habilidade {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    width: 20%;
+}
+
+.linhas {
+    align-items: center;
+    border: solid black 1px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 45px;
+    margin: 5px;
+    background-color: #EDEDED;
+}
+
+.linhas  p {
+    height: 100%;
+    width: 50px;
+    align-items: center;
+}
+
+.linhas input {
+    background-color: #EDEDED;
+    border: none;
+    height: 25%;
+    width: 25px;
+}
+

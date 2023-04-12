@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Habilidade.css';
 
 function Habilidades() {
 
@@ -96,8 +97,8 @@ function Habilidades() {
   }
 
   return (
-    <>
-      <div>
+    <div id="habilidade">
+      <div className='linhas'>
         <input
           type="number"
           name="Forca"
@@ -108,7 +109,7 @@ function Habilidades() {
         <p>{calcMoficador(forca)}</p>
       </div>
       
-      <div>
+      <div className='linhas'>
         <input
           type="number"
           name="Destreza"
@@ -118,7 +119,7 @@ function Habilidades() {
         <p>Destreza</p>
         <p>{calcMoficador(destreza)}</p>
       </div>
-      <div>
+      <div className='linhas'>
         <input
           type="number"
           name="Constituição"
@@ -128,7 +129,7 @@ function Habilidades() {
         <p>Constituição</p>
         <p>{calcMoficador(constituicao)}</p>
       </div>
-      <div>
+      <div className='linhas'>
         <input
           type="number"
           name="Inteligencia"
@@ -138,7 +139,7 @@ function Habilidades() {
         <p>Inteligencia</p>
         <p>{calcMoficador(inteligencia)}</p>
       </div>
-      <div>
+      <div className='linhas'>
         <input
           type="number"
           name="Sabedoria"
@@ -148,7 +149,7 @@ function Habilidades() {
         <p>Sabedoria</p>
         <p>{calcMoficador(sabedoria)}</p>
       </div>
-      <div>
+      <div className='linhas'>
         <input
           type="number"
           name="Carisma"
@@ -158,7 +159,7 @@ function Habilidades() {
         <p>Carisma</p>
         <p>{calcMoficador(carisma)}</p>
       </div>
-    </>
+    </div>
   );
 }
 

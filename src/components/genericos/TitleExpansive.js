@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function TitleExpansive({ titulo, body }) {
-    const [viewHidden, setViewHidden] = useState(false);
+    const [viewHidden, setViewHidden] = useState(true);
 
     const openContent = () => {
         setViewHidden(!viewHidden);
