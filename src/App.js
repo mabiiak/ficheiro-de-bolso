@@ -1,12 +1,12 @@
 import Habilidades from './components/Habilidades';
-import TitleExpansive from './components/genericos/TitleExpansive';
+import TituloExpansivo from './components/genericos/TituloExpansivo';
 
 function App() {
   const habilidades = () => (<Habilidades />)
 
   return (
     <div>
-      <TitleExpansive titulo="teste" body={habilidades()} />
+      <TituloExpansivo titulo="Habilidades e Proeficiencias" body={habilidades()} />
     </div>
   );
 }

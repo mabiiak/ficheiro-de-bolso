@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Habilidade.css';
+import './css/Habilidade.css';
 
 function Habilidades() {
 
