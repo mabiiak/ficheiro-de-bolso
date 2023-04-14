@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './css/Titulos.css';
 
 function TituloExpansivo({ titulo, body }) {
     const [viewHidden, setViewHidden] = useState(true);
@@ -8,9 +9,9 @@ function TituloExpansivo({ titulo, body }) {
     }
 
     return(
-        <div>
-            <div onClick={() => openContent()}>
-                <h2> {titulo} </h2>
+        <div id="geral">
+            <div id="titulos" onClick={() => openContent()}>
+                <p> {titulo} </p>
             </div>
             <div hidden={viewHidden}>
                 {body}

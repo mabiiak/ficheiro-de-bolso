@@ -3,12 +3,12 @@ import Habilidades from "../components/Habilidades";
 import TituloExpansivo from "../components/genericos/TituloExpansivo";
 
 export default function Ficha() {
-    const habilidades = (<Habilidades />);
+    const habilidades = () => (<Habilidades />);
 
     return(
         <div>
             {/* Cabeçalho */}
-            
+
             {/* Descrição personagem e moedas */}
 
             {/* Status */}

@@ -1,0 +1,17 @@
+#geral {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#titulos {
+    background-color: #4F83A0;
+    border-radius: 15px 15px 0 0;
+    color: #FFFFFF;
+    text-align: left;
+    width: 90%;
+}
+
+#titulos > p {
+    margin-left: 15px;
+}

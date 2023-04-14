@@ -106,7 +106,7 @@ function Habilidades() {
           onChange={(e) => changeValue(e)}
         />
         <p>Força</p>
-        <p>{calcMoficador(forca)}</p>
+        <span>{calcMoficador(forca)}</span>
       </div>
       
       <div className='linhas'>
@@ -117,7 +117,7 @@ function Habilidades() {
           onChange={(e) => changeValue(e)}
         />
         <p>Destreza</p>
-        <p>{calcMoficador(destreza)}</p>
+        <span>{calcMoficador(destreza)}</span>
       </div>
       <div className='linhas'>
         <input
@@ -127,7 +127,7 @@ function Habilidades() {
           onChange={(e) => changeValue(e)}
         />
         <p>Constituição</p>
-        <p>{calcMoficador(constituicao)}</p>
+        <span>{calcMoficador(constituicao)}</span>
       </div>
       <div className='linhas'>
         <input
@@ -137,7 +137,7 @@ function Habilidades() {
           onChange={(e) => changeValue(e)}
         />
         <p>Inteligencia</p>
-        <p>{calcMoficador(inteligencia)}</p>
+        <span>{calcMoficador(inteligencia)}</span>
       </div>
       <div className='linhas'>
         <input
@@ -147,7 +147,7 @@ function Habilidades() {
           onChange={(e) => changeValue(e)}
         />
         <p>Sabedoria</p>
-        <p>{calcMoficador(sabedoria)}</p>
+        <span>{calcMoficador(sabedoria)}</span>
       </div>
       <div className='linhas'>
         <input
@@ -157,7 +157,7 @@ function Habilidades() {
           onChange={(e) => changeValue(e)}
         />
         <p>Carisma</p>
-        <p>{calcMoficador(carisma)}</p>
+        <span>{calcMoficador(carisma)}</span>
       </div>
     </div>
   );
