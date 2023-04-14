@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function TitleExpansive({ titulo, body }) {
+function TituloExpansivo({ titulo, body }) {
     const [viewHidden, setViewHidden] = useState(true);
 
     const openContent = () => {
@@ -19,4 +19,4 @@ function TitleExpansive({ titulo, body }) {
     )
 }
 
-export default TitleExpansive;
+export default TituloExpansivo;

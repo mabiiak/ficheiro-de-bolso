@@ -1,12 +1,11 @@
-import Habilidades from './components/Habilidades';
-import TituloExpansivo from './components/genericos/TituloExpansivo';
+import Ficha from './paginas/Ficha';
+
+// Criar rotas
 
 function App() {
-  const habilidades = () => (<Habilidades />)
-
   return (
     <div>
-      <TituloExpansivo titulo="Habilidades e Proeficiencias" body={habilidades()} />
+        <Ficha />
     </div>
   );
 }
