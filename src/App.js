@@ -1,13 +1,20 @@
-import Habilidades from './components/Habilidades';
-import TituloExpansivo from './components/genericos/TituloExpansivo';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Ficha from './paginas/Ficha';
 
 function App() {
-  const habilidades = () => (<Habilidades />)
+    const router = createBrowserRouter([
+        {
+            path: "/ficha",
+            element: <Ficha />,
+        }, 
+        {
+            path: "/",
+            element: <Ficha />,
+        }
+    ]);
 
   return (
-    <div>
-      <TituloExpansivo titulo="Habilidades e Proeficiencias" body={habilidades()} />
-    </div>
+    <RouterProvider router={router} />
   );
 }
 

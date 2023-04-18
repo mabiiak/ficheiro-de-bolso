@@ -1,166 +1,158 @@
 import React, { useState } from 'react';
 import './css/Habilidade.css';
 
-function Habilidades() {
+function Habilidades({defineHabilidades, setHabilidades}) {
 
-  const [ forca, setForca ] = useState(0);
-  const [ destreza, setDestreza ] = useState(0);
-  const [ constituicao, setConstituicao ] = useState(0);
-  const [ inteligencia, setInteligencia ] = useState(0);
-  const [ sabedoria, setSabedoria ] = useState(0);
-  const [ carisma, setCarisma ] = useState(0);
+    const changeValue = ({ target }) => {
+        const { value, name } = target;
+        switch (name) {
+        case 'Forca' :
+            setHabilidades({ ...defineHabilidades, forca: value });
+            break;
 
-  const changeValue = ({ target }) => {
-    const { value, name } = target;
+        case 'Destreza' :
+            setHabilidades({ ...defineHabilidades, destreza: value });
+            break;
 
-    switch (name) {
-      case 'Forca' :
-        setForca(value);
-        break;
+        case 'Constituicao':
+            setHabilidades({ ...defineHabilidades, constituicao: value });
+            break;
 
-      case 'Destreza' :
-        setDestreza(value);
-        break;
+        case 'Inteligencia' :
+            setHabilidades({ ...defineHabilidades, inteligencia:  value });
+            break;
 
-      case 'Constituicao':
-        setConstituicao(value);
-        break;
+        case 'Sabedoria' :
+            setHabilidades({ ...defineHabilidades, sabedoria:  value });
+            break;
 
-      case 'Inteligencia' :
-        setInteligencia(value);
-        break;
-
-      case 'Sabedoria' :
-        setSabedoria(value);
-        break;
-
-      case 'Carisma':
-        setCarisma(value);
-        break;
-      default :
-        console.log("Pericia não encontrada");
-        break;
+        case 'Carisma':
+            setHabilidades({ ...defineHabilidades, carisma:  value });
+            break;
+        default :
+            console.log("Pericia não encontrada");
+            break;
+        }
     }
-  }
 
-  const calcMoficador = (habilidade) => {
-    habilidade = parseInt(habilidade);
+    const calcMoficador = (habilidade) => {
+        habilidade = parseInt(habilidade);
 
-    if (habilidade >= 0 && habilidade <= 1) {
-      return '-5';
+        if (habilidade >= 0 && habilidade <= 1) {
+        return '-5';
 
-    } else if (habilidade >= 2 && habilidade <= 3) {
-      return '-4';
+        } else if (habilidade >= 2 && habilidade <= 3) {
+        return '-4';
 
-    } else if (habilidade >= 4 && habilidade <= 5) {
-      return '-3';
+        } else if (habilidade >= 4 && habilidade <= 5) {
+        return '-3';
 
-    } else if (habilidade >= 6 && habilidade <= 7) {
-      return '-2';
+        } else if (habilidade >= 6 && habilidade <= 7) {
+        return '-2';
 
-    } else if (habilidade >= 8 && habilidade <= 9) {
-      return '-1';
+        } else if (habilidade >= 8 && habilidade <= 9) {
+        return '-1';
 
-    } else if (habilidade >= 10 && habilidade <= 11) {
-      return '+0';
+        } else if (habilidade >= 10 && habilidade <= 11) {
+        return '+0';
 
-    } else if (habilidade >= 12 && habilidade <= 13) {
-      return '+1';
+        } else if (habilidade >= 12 && habilidade <= 13) {
+        return '+1';
 
-    } else if (habilidade >= 14 && habilidade <= 15) {
-      return '+2';
+        } else if (habilidade >= 14 && habilidade <= 15) {
+        return '+2';
 
-    } else if (habilidade >= 16 && habilidade <= 17) {
-      return '+3';
+        } else if (habilidade >= 16 && habilidade <= 17) {
+        return '+3';
 
-    } else if (habilidade >= 18 && habilidade <= 19) {
-      return '+4';
+        } else if (habilidade >= 18 && habilidade <= 19) {
+        return '+4';
 
-    } else if (habilidade >= 20 && habilidade <= 21) {
-      return '+5';
+        } else if (habilidade >= 20 && habilidade <= 21) {
+        return '+5';
 
-    } else if (habilidade >= 22 && habilidade <= 23) {
-      return '+6';
+        } else if (habilidade >= 22 && habilidade <= 23) {
+        return '+6';
 
-    } else if (habilidade >= 24 && habilidade <= 25) {
-      return '+7';
+        } else if (habilidade >= 24 && habilidade <= 25) {
+        return '+7';
 
-    } else if (habilidade >= 26 && habilidade <= 27) {
-      return '+8';
+        } else if (habilidade >= 26 && habilidade <= 27) {
+        return '+8';
 
-    } else if (habilidade >= 28 && habilidade <= 29) {
-      return '+9';
+        } else if (habilidade >= 28 && habilidade <= 29) {
+        return '+9';
 
-    } else {
-      return '+10';
+        } else {
+        return '+10';
+        }
     }
-  }
 
-  return (
-    <div id="habilidade">
-      <div className='linhas'>
-        <input
-          type="number"
-          name="Forca"
-          value={forca}
-          onChange={(e) => changeValue(e)}
-        />
-        <p>Força</p>
-        <p>{calcMoficador(forca)}</p>
-      </div>
-      
-      <div className='linhas'>
-        <input
-          type="number"
-          name="Destreza"
-          value={destreza}
-          onChange={(e) => changeValue(e)}
-        />
-        <p>Destreza</p>
-        <p>{calcMoficador(destreza)}</p>
-      </div>
-      <div className='linhas'>
-        <input
-          type="number"
-          name="Constituição"
-          value={constituicao}
-          onChange={(e) => changeValue(e)}
-        />
-        <p>Constituição</p>
-        <p>{calcMoficador(constituicao)}</p>
-      </div>
-      <div className='linhas'>
-        <input
-          type="number"
-          name="Inteligencia"
-          value={inteligencia}
-          onChange={(e) => changeValue(e)}
-        />
-        <p>Inteligencia</p>
-        <p>{calcMoficador(inteligencia)}</p>
-      </div>
-      <div className='linhas'>
-        <input
-          type="number"
-          name="Sabedoria"
-          value={sabedoria}
-          onChange={(e) => changeValue(e)}
-        />
-        <p>Sabedoria</p>
-        <p>{calcMoficador(sabedoria)}</p>
-      </div>
-      <div className='linhas'>
-        <input
-          type="number"
-          name="Carisma"
-          value={carisma}
-          onChange={(e) => changeValue(e)}
-        />
-        <p>Carisma</p>
-        <p>{calcMoficador(carisma)}</p>
-      </div>
-    </div>
-  );
+    return (
+        <div id="habilidade">
+            <div className='linhas'>
+                <input
+                type="number"
+                name="Forca"
+                value={defineHabilidades.forca}
+                onChange={(e) => changeValue(e)}
+                />
+                <p>Força</p>
+                <span>{calcMoficador(defineHabilidades.forca)}</span>
+            </div>
+            
+            <div className='linhas'>
+                <input
+                type="number"
+                name="Destreza"
+                value={defineHabilidades.destreza}
+                onChange={(e) => changeValue(e)}
+                />
+                <p>Destreza</p>
+                <span>{calcMoficador(defineHabilidades.destreza)}</span>
+            </div>
+            <div className='linhas'>
+                <input
+                type="number"
+                name="Constituicao"
+                value={defineHabilidades.constituicao}
+                onChange={(e) => changeValue(e)}
+                />
+                <p>Constituição</p>
+                <span>{calcMoficador(defineHabilidades.constituicao)}</span>
+            </div>
+            <div className='linhas'>
+                <input
+                type="number"
+                name="Inteligencia"
+                value={defineHabilidades.inteligencia}
+                onChange={(e) => changeValue(e)}
+                />
+                <p>Inteligencia</p>
+                <span>{calcMoficador(defineHabilidades.inteligencia)}</span>
+            </div>
+            <div className='linhas'>
+                <input
+                type="number"
+                name="Sabedoria"
+                value={defineHabilidades.sabedoria}
+                onChange={(e) => changeValue(e)}
+                />
+                <p>Sabedoria</p>
+                <span>{calcMoficador(defineHabilidades.sabedoria)}</span>
+            </div>
+            <div className='linhas'>
+                <input
+                type="number"
+                name="Carisma"
+                value={defineHabilidades.carisma}
+                onChange={(e) => changeValue(e)}
+                />
+                <p>Carisma</p>
+                <span>{calcMoficador(defineHabilidades.carisma)}</span>
+            </div>
+        </div>
+    );
 }
 
 export default Habilidades;
