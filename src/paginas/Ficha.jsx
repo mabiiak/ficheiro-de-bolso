@@ -13,6 +13,18 @@ export default function Ficha() {
         carisma: 0,
     });
 
+    useEffect(() => {
+        let verSalvos = JSON.parse(localStorage.getItem('personagem'));
+
+        console.log(verSalvos);
+
+        if (verSalvos) setHabilidades(verSalvos);
+    }, []);
+
+    const salvaHabilidades = () => {
+        localStorage.setItem('personagem', JSON.stringify(defineHabilidades));
+    };
+
     const habilidadesProeficiencias = () => (
         <div>
             <Habilidades
@@ -39,6 +51,7 @@ export default function Ficha() {
             {/* Magias */}
 
             {/* Itens */}
+            <button onClick={salvaHabilidades}>SALVAR</button>
         </div>
     )
 }
