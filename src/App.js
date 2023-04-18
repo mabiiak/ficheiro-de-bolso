@@ -1,12 +1,20 @@
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Ficha from './paginas/Ficha';
 
-// Criar rotas
-
 function App() {
+    const router = createBrowserRouter([
+        {
+            path: "/ficha",
+            element: <Ficha />,
+        }, 
+        {
+            path: "/",
+            element: <Ficha />,
+        }
+    ]);
+
   return (
-    <div>
-        <Ficha />
-    </div>
+    <RouterProvider router={router} />
   );
 }
 
