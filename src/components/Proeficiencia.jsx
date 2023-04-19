@@ -1,13 +1,24 @@
 import React, { useState } from "react";
+import './css/Proeficiencia.css';
 
 function Proeficiencia() {
-    const [listProeficiencia, setListaProeficiencia] = useState([]);
+    const [listProeficiencia, setListaProeficiencia] = useState([{nome: "investigação", modificador: 4}]);
 
     return (
-        <div>
-            <input type="text" />
-            <p>0</p>
-            <button>+</button>
+        <div id="proeficiencia">
+            {
+                listProeficiencia.length && listProeficiencia.map((item, index) => (
+                    <div key={index} className='linhas'>
+                        <p>{item.nome}</p>
+                        <p>{item.modificador}</p>
+                    </div>
+                ))
+            }
+            <div className="linhas-proeficiencia">
+                <input type="text" />
+                <input type="number"/>
+                <button>+</button>
+            </div>
         </div>
     )
 }
