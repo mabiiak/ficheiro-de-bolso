@@ -15,9 +15,6 @@ export default function Ficha() {
 
     useEffect(() => {
         let verSalvos = JSON.parse(localStorage.getItem('personagem'));
-
-        console.log(verSalvos);
-
         if (verSalvos) setHabilidades(verSalvos);
     }, []);
 
@@ -26,12 +23,12 @@ export default function Ficha() {
     };
 
     const habilidadesProeficiencias = () => (
-        <div>
+        <div id="setaGrid">
             <Habilidades
                 defineHabilidades={defineHabilidades}
                 setHabilidades={setHabilidades}
             />
-            {/* <Proeficiencia /> */}
+            <Proeficiencia />
         </div>
     );
 

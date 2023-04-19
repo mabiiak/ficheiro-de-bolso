@@ -1,0 +1,13 @@
+#proeficiencia {
+    width: 50%;
+}
+
+.linhas-proeficiencia input {
+    background-color: #EDEDED;
+    border: none;
+    border-left: solid #CDCDCD 2px;
+    height: 100%;
+    margin-right: 5px;
+    text-align: center;
+    width: 20%;
+}
