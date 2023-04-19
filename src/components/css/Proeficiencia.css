@@ -2,7 +2,49 @@
     width: 50%;
 }
 
+.linhas-proeficiencia {
+    align-items: center;
+    background-color: #EDEDED;
+    border: none;
+    border-radius: 0 10px 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 23px;
+    margin: 3px;
+} 
+
 .linhas-proeficiencia input {
+    background-color: #EDEDED;
+    border: none;
+    border-radius: 25px 0 0 0;
+    height: 100%;
+    margin-right: 5px;
+    text-align: center;
+    width: 20%;
+}
+
+.linhas-proeficiencia > p {
+    align-items: center;
+    border-left: solid #CDCDCD 2px;
+    height: 90%;
+    margin-right: 5px;
+    padding-left: 5px;
+    width: 120px;
+    border-radius: 0 10px 0 0;
+
+}
+
+.linhas-proeficiencia > span {
+    background-color: #EDEDED;
+    border: none;
+    border-left: solid #CDCDCD 2px;
+    margin-right: 5px;
+    text-align: center;
+    width: 20%;
+}
+
+.criar-proeficiencia input {
     background-color: #EDEDED;
     border: none;
     border-left: solid #CDCDCD 2px;

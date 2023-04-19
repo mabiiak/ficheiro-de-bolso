@@ -8,13 +8,13 @@ function Proeficiencia() {
         <div id="proeficiencia">
             {
                 listProeficiencia.length && listProeficiencia.map((item, index) => (
-                    <div key={index} className='linhas'>
+                    <div key={index} className='linhas-proeficiencia'>
                         <p>{item.nome}</p>
                         <p>{item.modificador}</p>
                     </div>
                 ))
             }
-            <div className="linhas-proeficiencia">
+            <div className="criar-proeficiencia">
                 <input type="text" />
                 <input type="number"/>
                 <button>+</button>
