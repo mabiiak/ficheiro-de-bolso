@@ -1,5 +1,4 @@
 .geral {
-    align-items: center;
     display: flex;
     flex-direction: column;
 }
@@ -9,7 +8,6 @@
     border-radius: 15px 15px 0 0;
     color: #FFFFFF;
     text-align: left;
-    width: 90%;
 }
 
 #titulos > p {
@@ -19,6 +17,5 @@
 #setaGrid {
     display: flex;
     justify-content: center;
-    width: 90%;
     flex-wrap: wrap
 }
