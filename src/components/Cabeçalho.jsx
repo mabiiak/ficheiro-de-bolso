@@ -26,13 +26,13 @@ export default function Cabeçalho({titulo}) {
         <header className="gallery">
             <div className="gallery-header">
                 <h1>{titulo}</h1>
+                {
+                    titulo !== "galeria"
+                        && <button onClick={salvaHabilidades}>SALVAR</button>
+                }
                 <button className="gallery-button" onClick={openContent}>
                     <img src={iconeGaleria} alt="icone de Galeria" />
                 </button>
-                {
-                    titulo === "galeria"
-                        && <button onClick={salvaHabilidades}>SALVAR</button>
-                }
             </div>
             <div className="modal"  hidden={viewHidden}>
                 <nav className="menu-modal">
