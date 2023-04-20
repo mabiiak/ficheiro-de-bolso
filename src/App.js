@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Ficha from './paginas/Ficha';
+import Provider from './context/Provider';
 
 function App() {
     const router = createBrowserRouter([
@@ -14,7 +15,9 @@ function App() {
     ]);
 
   return (
-    <RouterProvider router={router} />
+    <Provider>
+        <RouterProvider router={router} />
+    </Provider>
   );
 }
 
