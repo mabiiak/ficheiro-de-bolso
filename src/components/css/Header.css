@@ -25,11 +25,17 @@
   width: 2rem;
   background-color: transparent;
   cursor: pointer;
+
 }
 
 .gallery-button img {
   height: 2rem;
   width: 2rem;
+
+}
+
+.gallery-button svg path {
+    fill: red;
 }
 
 .menu-modal {

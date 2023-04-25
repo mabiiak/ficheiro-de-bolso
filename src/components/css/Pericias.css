@@ -1,0 +1,60 @@
+#pericia {
+    width: 50%;
+}
+
+.linhas-pericia {
+    align-items: center;
+    background-color: #EDEDED;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 26px;
+    margin: 3px;
+} 
+
+.linhas-pericia > p {
+    border-left: solid #CDCDCD 2px;
+    height: 90%;
+    margin-right: 5px;
+    padding-left: 5px;
+    width: 15%;
+}
+
+#nome-pericia {
+    align-items: center;
+    border-left: solid #CDCDCD 2px;
+    height: 90%;
+    margin-right: 5px;
+    padding-left: 5px;
+    width: 85%;
+}
+
+.criar-pericia {
+    margin: 3px;
+}
+
+.criar-pericia input {
+    background-color: #EDEDED;
+    border: none;
+    border-left: solid #CDCDCD 2px;
+    height: 22px;
+    margin-right: 5px;
+    text-align: center;
+    width: 20%;
+}
+
+input[type=text] {
+    text-align: left;
+    width: 56%;
+}
+
+input::placeholder {
+    padding: 5px;
+}
+
+.criar-pericia button {
+    border: none;
+    height: 22px;
+    width: 18%;
+}
