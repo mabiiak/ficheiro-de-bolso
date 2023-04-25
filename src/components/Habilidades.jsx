@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, {useContext} from 'react';
+import { Context } from '../context/Provider';
 import './css/Habilidade.css';
 
-function Habilidades({defineHabilidades, setHabilidades}) {
-
+function Habilidades() {
+    const {defineHabilidades, setHabilidades} = useContext(Context);
+    
     const changeValue = ({ target }) => {
         const { value, name } = target;
+
         switch (name) {
         case 'Forca' :
             setHabilidades({ ...defineHabilidades, forca: value });
@@ -94,7 +97,7 @@ function Habilidades({defineHabilidades, setHabilidades}) {
                 <input
                 type="number"
                 name="Forca"
-                value={defineHabilidades.forca}
+                value={+defineHabilidades.forca}
                 onChange={(e) => changeValue(e)}
                 />
                 <p>Força</p>
@@ -105,7 +108,7 @@ function Habilidades({defineHabilidades, setHabilidades}) {
                 <input
                 type="number"
                 name="Destreza"
-                value={defineHabilidades.destreza}
+                value={+defineHabilidades.destreza}
                 onChange={(e) => changeValue(e)}
                 />
                 <p>Destreza</p>
@@ -115,7 +118,7 @@ function Habilidades({defineHabilidades, setHabilidades}) {
                 <input
                 type="number"
                 name="Constituicao"
-                value={defineHabilidades.constituicao}
+                value={+defineHabilidades.constituicao}
                 onChange={(e) => changeValue(e)}
                 />
                 <p>Constituição</p>
@@ -125,7 +128,7 @@ function Habilidades({defineHabilidades, setHabilidades}) {
                 <input
                 type="number"
                 name="Inteligencia"
-                value={defineHabilidades.inteligencia}
+                value={+defineHabilidades.inteligencia}
                 onChange={(e) => changeValue(e)}
                 />
                 <p>Inteligencia</p>
@@ -135,7 +138,7 @@ function Habilidades({defineHabilidades, setHabilidades}) {
                 <input
                 type="number"
                 name="Sabedoria"
-                value={defineHabilidades.sabedoria}
+                value={+defineHabilidades.sabedoria}
                 onChange={(e) => changeValue(e)}
                 />
                 <p>Sabedoria</p>
@@ -145,7 +148,7 @@ function Habilidades({defineHabilidades, setHabilidades}) {
                 <input
                 type="number"
                 name="Carisma"
-                value={defineHabilidades.carisma}
+                value={+defineHabilidades.carisma}
                 onChange={(e) => changeValue(e)}
                 />
                 <p>Carisma</p>

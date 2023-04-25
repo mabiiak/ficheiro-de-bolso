@@ -1,9 +1,18 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import PropTypes from 'prop-types';
 
 export const Context = createContext();
 
 function Provider({ children }) {
+    useEffect(() => {
+        let verSalvos = JSON.parse(localStorage.getItem('personagem'));
+        if (verSalvos) {
+            setHabilidades(verSalvos.habilidades);
+            setListaPericias(verSalvos.pericias);
+        };
+    }, []);
+
+
     const [defineHabilidades, setHabilidades] = useState({
         forca: 0,
         destreza: 0,

@@ -5,8 +5,8 @@ import iconeGaleria from '../assets/gallery.svg';
 
 export default function Cabeçalho({titulo}) {
     const {
-        listProeficiencia, setListaProeficiencia,
-        defineHabilidades, setHabilidades,
+        listaPericias,
+        defineHabilidades,
     } = useContext(Context);
 
     const [viewHidden, setViewHidden] = useState(true);
@@ -18,7 +18,7 @@ export default function Cabeçalho({titulo}) {
     const salvaHabilidades = () => {
         localStorage.setItem('personagem', JSON.stringify({
             habilidades: { ...defineHabilidades},
-            pericias: { }
+            pericias: { ...listaPericias },
         }));
     };
 
