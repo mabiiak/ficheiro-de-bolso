@@ -13,13 +13,13 @@ function Provider({ children }) {
         carisma: 0,
     });
 
-    const [listProeficiencia, setListaProeficiencia] = useState([{nome: "investigação", modificador: 4}]);
+    const [listaPericias, setListaPericias] = useState({});
 
     const estadosGlobais = {
         defineHabilidades,
         setHabilidades,
-        listProeficiencia,
-        setListaProeficiencia,
+        listaPericias,
+        setListaPericias,
     }
 
   return (
