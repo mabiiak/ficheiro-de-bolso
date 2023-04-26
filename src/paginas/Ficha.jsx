@@ -6,6 +6,7 @@ import Pericias from "../components/Pericias";
 
 import Cabeçalho from "../components/Cabeçalho";
 import TituloExpansivo from "../components/genericos/TituloExpansivo";
+import Descritivo from "../components/Descritivo";
 
 export default function Ficha() {
     const habilidadesPericias = () => (
@@ -20,6 +21,7 @@ export default function Ficha() {
             <Cabeçalho titulo={"nome personagem"}/>
 
             {/* Descrição personagem e moedas */}
+            <Descritivo />
 
             {/* Status */}
 
