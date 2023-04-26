@@ -4,15 +4,6 @@ import PropTypes from 'prop-types';
 export const Context = createContext();
 
 function Provider({ children }) {
-    useEffect(() => {
-        let verSalvos = JSON.parse(localStorage.getItem('personagem'));
-        if (verSalvos) {
-            setHabilidades(verSalvos.habilidades);
-            setListaPericias(verSalvos.pericias);
-        };
-    }, []);
-
-
     const [defineHabilidades, setHabilidades] = useState({
         forca: 0,
         destreza: 0,
@@ -23,6 +14,14 @@ function Provider({ children }) {
     });
 
     const [listaPericias, setListaPericias] = useState({});
+
+    useEffect(() => {
+        let verSalvos = JSON.parse(localStorage.getItem('personagem'));
+        if (verSalvos) {
+            setHabilidades(verSalvos.habilidades);
+            setListaPericias(verSalvos.pericias);
+        };
+    }, []);
 
     const estadosGlobais = {
         defineHabilidades,

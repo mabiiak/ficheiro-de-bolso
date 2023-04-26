@@ -17,8 +17,29 @@ export default function Cabeçalho({titulo}) {
 
     const salvaHabilidades = () => {
         localStorage.setItem('personagem', JSON.stringify({
+            descritivo: {
+                nome: "",
+                classe: "",
+                nivel: 0,
+                raça: "",
+                antecedente: "",
+                alinhamento: "",
+            },
             habilidades: { ...defineHabilidades},
             pericias: { ...listaPericias },
+            moedas: {
+                PO: 0,
+                PP: 0,
+                PC: 0,
+                PB: 0
+            },
+            status: {
+                hpAtual: 0,
+                hpMax: 0,
+                cd: 0,
+                ca: 0,
+                mod: 0,
+            }
         }));
     };
 
