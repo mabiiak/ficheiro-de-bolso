@@ -4,7 +4,7 @@ import './css/Habilidade.css';
 
 function Habilidades() {
     const {defineHabilidades, setHabilidades} = useContext(Context);
-    
+        
     const changeValue = ({ target }) => {
         const { value, name } = target;
 

@@ -38,7 +38,7 @@ function Pericias() {
                 lista.map(([nome, valor]) => (
                     <div key={nome} className='linhas-pericia'>
                         <p id="nome-pericia">{nome}</p>
-                        <p>{valor}</p>
+                        <p id="mod-pericia">{valor}</p>
                     </div>
                 ))
             }
