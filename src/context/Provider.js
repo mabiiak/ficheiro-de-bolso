@@ -4,6 +4,22 @@ import PropTypes from 'prop-types';
 export const Context = createContext();
 
 function Provider({ children }) {
+    const [descritivo, setDescritivo] = useState({
+        nome: "",
+        classe: "",
+        nivel: 0,
+        raca: "",
+        antecedente: "",
+        alinhamento: "",
+    });
+
+    const [moedas, setMoedas] = useState({
+        po: 0,
+        pp: 0,
+        pc: 0,
+        pb: 0,
+    });
+
     const [defineHabilidades, setHabilidades] = useState({
         forca: 0,
         destreza: 0,
@@ -20,6 +36,7 @@ function Provider({ children }) {
         if (verSalvos) {
             setHabilidades(verSalvos.habilidades);
             setListaPericias(verSalvos.pericias);
+            setDescritivo(verSalvos.descritivo);
         };
     }, []);
 
@@ -28,6 +45,10 @@ function Provider({ children }) {
         setHabilidades,
         listaPericias,
         setListaPericias,
+        descritivo,
+        setDescritivo,
+        moedas,
+        setMoedas,
     }
 
   return (
