@@ -9,6 +9,7 @@ export default function Cabeçalho({titulo}) {
         defineHabilidades,
         descritivo,
         moedas,
+        status,
     } = useContext(Context);
 
     const [viewHidden, setViewHidden] = useState(true);
@@ -23,13 +24,7 @@ export default function Cabeçalho({titulo}) {
             moedas,
             habilidades: { ...defineHabilidades},
             pericias: { ...listaPericias },
-            status: {
-                hpAtual: 0,
-                hpMax: 0,
-                cd: 0,
-                ca: 0,
-                mod: 0,
-            }
+            status,
         }));
     };
 

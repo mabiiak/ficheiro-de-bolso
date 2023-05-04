@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Context } from "../context/Provider";
+import React from "react";
 
 import Habilidades from "../components/Habilidades";
 import Pericias from "../components/Pericias";
@@ -7,6 +6,7 @@ import Pericias from "../components/Pericias";
 import Cabeçalho from "../components/Cabeçalho";
 import TituloExpansivo from "../components/genericos/TituloExpansivo";
 import Descritivo from "../components/Descritivo";
+import Status from "../components/Status";
 
 export default function Ficha() {
     const habilidadesPericias = () => (
@@ -18,13 +18,9 @@ export default function Ficha() {
 
     return(
         <div>
-            <Cabeçalho titulo={"nome personagem"}/>
-
-            {/* Descrição personagem e moedas */}
+            <Cabeçalho titulo={"nelson"}/>
             <Descritivo />
-
-            {/* Status */}
-
+            <Status />
             <TituloExpansivo
                 titulo="Habilidades e Pericias"
                 body={habilidadesPericias()}

@@ -29,6 +29,14 @@ function Provider({ children }) {
         carisma: 0,
     });
 
+    const [status, setStatus] = useState({
+        hpAtual: 0,
+        hpMax: 0,
+        cd: 0,
+        ca: 0,
+        mod: 0,
+    });
+
     const [listaPericias, setListaPericias] = useState({});
 
     useEffect(() => {
@@ -37,6 +45,7 @@ function Provider({ children }) {
             setHabilidades(verSalvos.habilidades);
             setListaPericias(verSalvos.pericias);
             setDescritivo(verSalvos.descritivo);
+            setStatus(verSalvos.status);
         };
     }, []);
 
@@ -49,6 +58,8 @@ function Provider({ children }) {
         setDescritivo,
         moedas,
         setMoedas,
+        status,
+        setStatus,
     }
 
   return (
