@@ -52,6 +52,8 @@ Esse site lhe permitirá criar fichas e visualizar seus personagens de D&D.
   - Usando o exemplo anterior: `git push -u origin joaozinho-ting`
 
   6. Crie um novo `Pull Request` _(PR)_
+  
+  7. Para rodar o projto execute `npm start` 
 
 ## Funcionalidades futuras:
 
