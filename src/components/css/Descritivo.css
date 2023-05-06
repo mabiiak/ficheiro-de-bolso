@@ -1,5 +1,5 @@
 #descritivo{
-    padding: 1% 5%;
+    padding: var(--padding-padrao);
 }
 
 

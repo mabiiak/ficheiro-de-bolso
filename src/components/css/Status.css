@@ -1,9 +1,9 @@
 #status {
     display: flex;
     justify-content: space-between;
-    padding: 1% 5%;
+    padding: var(--padding-padrao);
     width: 100%;
-    border-radius: 50px;
+    border-radius: 0 0 35px 35px;
     overflow: hidden;
 }
 
