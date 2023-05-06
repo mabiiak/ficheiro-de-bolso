@@ -10,6 +10,7 @@ export default function Cabeçalho({titulo}) {
         descritivo,
         moedas,
         status,
+        listaMagias,
     } = useContext(Context);
 
     const [viewHidden, setViewHidden] = useState(true);
@@ -25,6 +26,7 @@ export default function Cabeçalho({titulo}) {
             habilidades: { ...defineHabilidades},
             pericias: { ...listaPericias },
             status,
+            magias: { ...listaMagias },
         }));
     };
 
