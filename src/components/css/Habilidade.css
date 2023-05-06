@@ -1,45 +1,46 @@
 #habilidade {
     display: flex;
     flex-direction: column;
+    width: 50%;
+    /* margin-top: 3px; */
 }
 
 .linhas {
     align-items: center;
-    background-color: #EDEDED;
-    border-radius: 10px 10px 0 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 23px;
-    margin: 3px;
-    border: none;
-    width: 50%;
-}
+    font-size: 14px;
+    margin-bottom: 3px;
+    width: 100%;
+} 
 
 .linhas input {
     background-color: #EDEDED;
     border: none;
-    border-radius: 25px 0 0 0;
-    height: 100%;
-    margin-right: 5px;
+    border-radius: 3px 0 0 0;
+    font-size: 14px;
+    height: 25px;
     text-align: center;
     width: 20%;
 }
 
-.linhas > p {
+.linhas p {
     align-items: center;
-    border-left: solid #CDCDCD 2px;
-    height: 90%;
-    margin-right: 5px;
+    background-color: #EDEDED;
+    border-left: solid #CDCDCD 3px;
+    height: 25px;
     padding-left: 5px;
-    width: 120px;
+    width: 60%;
+    display: flex;
 }
 
-.linhas > span {
+.linhas span {
+    align-items: center;
     background-color: #EDEDED;
     border: none;
-    border-left: solid #CDCDCD 2px;
-    margin-right: 5px;
+    border-left: solid #CDCDCD 3px;
+    display: flex;
+    height: 25px;
+    justify-content: center;
     text-align: center;
     width: 20%;
 }

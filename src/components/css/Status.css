@@ -1,0 +1,36 @@
+#status {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-padrao);
+    width: 100%;
+    border-radius: 0 0 35px 35px;
+    overflow: hidden;
+}
+
+.linha-descritiva {
+    padding: 0 1%; 
+    display: inline;
+    font-size: 12px;
+
+}
+
+
+
+#status-triplo {
+    background-color: #EDEDED;
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    width: 24%;
+    padding: 0 1%; 
+}
+
+
+
+.status-duplo {
+    background-color: #EDEDED;
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    width: 24%;
+}

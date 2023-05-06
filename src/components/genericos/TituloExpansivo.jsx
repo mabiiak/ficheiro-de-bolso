@@ -9,14 +9,14 @@ function TituloExpansivo({ titulo, body }) {
     }
 
     return(
-        <div id="geral">
+        <section className="geral">
             <div id="titulos" onClick={() => openContent()}>
                 <p> {titulo} </p>
             </div>
             <div hidden={viewHidden}>
                 {body}
             </div>
-        </div>
+        </section>
     )
 }
 

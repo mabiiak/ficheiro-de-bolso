@@ -1,0 +1,63 @@
+#pericia {
+    /* margin-top: 3px; */
+    width: 50%;
+}
+
+
+.linhas-pericia, .criar-pericia {
+    align-items: center;
+    display: flex;
+    font-size: 14px;
+    margin-bottom: 3px;
+    width: 100%;
+}
+#nome-pericia {
+    align-items: center;
+    background-color: #EDEDED;
+    border-left: solid #CDCDCD 3px;
+    border-right: solid #CDCDCD 3px;
+    display: flex;
+    height: 25px;
+    padding-left: 5px;
+    width: 80%;
+}
+#mod-pericia {
+    align-items: center;
+    background-color: #EDEDED;
+    display: flex;
+    height: 25px;
+    justify-content: center;
+    width: 20%;
+}
+
+
+
+.criar-pericia input {
+    background-color: #EDEDED;
+    border: none;
+    border-left: solid #CDCDCD 3px;
+    height: 25px;
+    text-align: center;
+}
+.criar-pericia input[type=text] {
+    text-align: left;
+    width: 60%;
+}
+.criar-pericia input[type=number] {
+    border-left: solid #CDCDCD 3px;
+    border-right: solid #CDCDCD 3px;
+    text-align: left;
+    width: 20%;
+}
+.criar-pericia input::placeholder {
+    font-size: 10px;
+    padding: 5px;
+}
+.criar-pericia button {
+    background-color: #4F83A0;
+    border-left: solid #CDCDCD 3px;
+    border: none;
+    color: #EDEDED;
+    height: 25px;
+    width: 20%;
+}

@@ -1,0 +1,99 @@
+#descritivo{
+    padding: var(--padding-padrao);
+}
+
+
+
+#linha-nome {
+    align-items: center;
+    display: flex;
+    margin-bottom: 3px;
+    gap: 3px;
+}
+#linha-nome label {
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    background-color: #EDEDED;
+    display: flex;
+    font-size: 12px;
+    height: 25px;
+    padding-left: 10px;
+    width: 100%;
+}
+#linha-nome input {
+    background-color: #EDEDED;
+    border: none;
+    margin-left: 5px;
+    width: 99%;
+}
+
+
+
+#linha-tripla {
+    align-items: center;
+    display: flex;
+    margin-bottom: 3px;
+    gap: 3px;
+}
+#linha-tripla label {
+    align-items: center;
+    background-color: #EDEDED;
+    display: flex;
+    font-size: 12px;
+    height: 25px;
+    padding-left: 10px;
+    width: 50%;
+}
+#linha-tripla input {
+    background-color: #EDEDED;
+    border: none;
+    text-align: center;
+    width: 99%;
+}
+
+
+
+#linha-dupla {
+    align-items: center;
+    display: flex;
+    margin-bottom: 3px;
+    gap: 3px;
+}
+#linha-dupla label {
+    align-items: center;
+    background-color: #EDEDED;
+    display: flex;
+    font-size: 12px;
+    height: 25px;
+    padding-left: 10px;
+    width: 50%;
+}
+#linha-dupla input {
+    background-color: #EDEDED;
+    border: none;
+    margin-left: 5px;
+    width: 99%;
+}
+
+
+
+#linha-moedas {
+    align-items: center;
+    display: flex;
+    gap: 3px;
+}
+#linha-moedas label {
+    align-items: center;
+    background-color: #EDEDED;
+    display: flex;
+    height: 25px;
+    font-size: 14px;
+    padding-left: 10px;
+    width: 25%;
+}
+#linha-moedas input {
+    background-color: #EDEDED;
+    border: none;
+    text-align: center;
+    width: 99%;
+}
