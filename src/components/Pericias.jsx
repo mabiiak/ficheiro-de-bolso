@@ -25,8 +25,8 @@ function Pericias() {
     };
 
     const salvaPericias = () => {
-        setListaPericias({... listaPericias, [nomePericias]: +modificador});
-        setLista(Object.entries({... listaPericias, [nomePericias]: +modificador}));
+        setListaPericias({ ...listaPericias, [nomePericias]: +modificador });
+        setLista(Object.entries({ ...listaPericias, [nomePericias]: +modificador }));
 
         setNomePericias("");
         setModificador("");

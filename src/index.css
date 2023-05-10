@@ -11,8 +11,6 @@
   --main-color: hsla(201, 34%, 47%, 1);
   --background-color: hsla(0, 0%, 80%, 1);
   --border-radious: 5px 5px 0 0;
-  --main-padding-inp-button: 1rem 2rem;
-} */
   --padding-padrao: 5px 10px;
 }
 
@@ -21,9 +19,9 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #CDCDCD;
 
-  --font-title-color: rgb(255, 255, 255);
+  /* --font-title-color: rgb(255, 255, 255);
   --main-color: hsla(201, 34%, 47%, 1);
   --background-color: hsla(0, 0%, 80%, 1);
   --border-radious: 5px 5px 0 0;
-  --main-padding-inp-button: 1rem 2rem;
+  --main-padding-inp-button: 1rem 2rem; */
 }
