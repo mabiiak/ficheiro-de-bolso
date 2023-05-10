@@ -6,30 +6,6 @@ export default function Magias() {
     const [editando, setEditar] = useState(false);
     const [statusCriacao, setStatusCriacao] = useState("");
     const [esconderCriacao, setEsconderCriacao] = useState(true);
-    const [salvarMagia, setMagia] = useState({});
-
-    useEffect(() => {
-        let elExibicao = document.querySelectorAll('.texto');
-        let elCampoEditavel = document.querySelectorAll('.campoEditavel');
-
-        if (editando) {
-            elExibicao.forEach(element => {
-                element.style.display = 'none';
-            });
-            
-            elCampoEditavel.forEach(element => {
-                element.style.display = 'block';
-            });
-        } else {
-            elCampoEditavel.forEach(element => {
-                element.style.display = 'none';
-            });
-
-            elExibicao.forEach(element => {
-                element.style.display = 'block';
-            });
-        }
-    }, [editando]);
 
     useEffect(() => {
         if (statusCriacao === "criando") {
@@ -40,23 +16,17 @@ export default function Magias() {
         };
     }, [statusCriacao]);
 
-    const habilitarEdicao = () => {
+    function habilitarEdicao() {
         setEditar(!editando);
     };
 
-    const criarSalvar = () => {
-        if (statusCriacao === "") {
-            setStatusCriacao("criando");
-        } else if (statusCriacao === "criando") {
-            setListaMagias([...listaMagias, { ...salvarMagia }])
-            setStatusCriacao("salvar");
-        } 
-    };
-
-    const changeValue = ({target}) => {
+    function editarItem(index, {target}) {
         const { value, name } = target;
-        setMagia({ ...salvarMagia, [name]: value });
-    };
+
+        const novaListaMagias = [...listaMagias];
+        novaListaMagias[index] = { ...novaListaMagias[index], [name]: value };
+        setListaMagias(novaListaMagias);
+    }
 
     return(
         <div>
@@ -65,10 +35,12 @@ export default function Magias() {
             </div>
 
             <input type="text" placeholder="magia buscada" />
-            <button onClick={() => criarSalvar()}>
-                Adicionar magia/ Salvar
+            <button
+                // onClick={() => criarSalvar()}
+            >
+                Criar magia
             </button>
-            <div hidden={esconderCriacao}>
+            {/* <div hidden={esconderCriacao}>
                 <input
                     type="text"
                     onChange={(e) => changeValue(e)}
@@ -79,62 +51,41 @@ export default function Magias() {
                     onChange={(e) => changeValue(e)}
                     name="titulo"
                 />
-                <textarea
+                <input
                     placeholder="descrição da magia"
                     onChange={(e) => changeValue(e)}
                     name="comentario"
                 />
-            </div>
-
+            </div> */
+            }
             {
-                listaMagias && listaMagias.map((magia) => (
+                listaMagias && listaMagias.map((magia, index) => (
                     <div key={magia.titulo}>
-                        <p
-                            className="texto"
-                            name="nivel"
-                            id="nivel"
-                        >
-                            {magia.nivel}
-                        </p>
                         <input
                             className="campoEditavel"
-                            onChange={() => console.log()}
+                            onChange={(e) => editarItem(index, e)}
                             name="nivel"
                             value={magia.nivel}
+                            readOnly={!editando}
                         />
-                        <p
-                            className="texto"
-                            name="titulo"
-                            id="titulo"
-                        >
-                            {magia.titulo}
-                        </p>
                         <input
                             className="campoEditavel"
-                            onChange={() => console.log()}
+                            onChange={(e) => editarItem(index, e)}
                             name="titulo"
                             value={magia.titulo}
+                            readOnly={!editando}
                         />
-                        <p
-                            className="texto"
-                            name="comentario"
-                            id="comentario"
-                        >
-                            {magia.comentario}
-                        </p>
-                        <textarea
+                        <input
                             className="campoEditavel"
-                            onChange={() => console.log()}
+                            onChange={(e) => editarItem(index, e)}
                             name="comentario"
                             value={magia.comentario}
+                            readOnly={!editando}
                         />
-                        <p>_________________</p>
                     </div>
                 ))
             }
-
-            <button onClick={() => habilitarEdicao()}>Editar</button>
-
+            <button onClick={habilitarEdicao}>{editando ? "Salvar" : "Editar"}</button>
         </div>
     )
 };
