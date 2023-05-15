@@ -4,17 +4,10 @@ import { Context } from '../context/Provider';
 export default function Magias() {
     const {listaMagias, setListaMagias} = useContext(Context);
     const [editando, setEditar] = useState(false);
-    const [statusCriacao, setStatusCriacao] = useState("");
-    const [esconderCriacao, setEsconderCriacao] = useState(true);
 
-    useEffect(() => {
-        if (statusCriacao === "criando") {
-            setEsconderCriacao(false);
-        } else if (statusCriacao === "salvar") {
-            setEsconderCriacao(true);
-            setStatusCriacao("");
-        };
-    }, [statusCriacao]);
+    const [tituloMagia, setTituloMagia] = useState("");
+    const [nivelMagia, setNivelMagia] = useState("");
+    const [comentarioMagia, setComentarioMagia] = useState("");
 
     function habilitarEdicao() {
         setEditar(!editando);
@@ -26,38 +19,70 @@ export default function Magias() {
         const novaListaMagias = [...listaMagias];
         novaListaMagias[index] = { ...novaListaMagias[index], [name]: value };
         setListaMagias(novaListaMagias);
-    }
+    };
+
+    const changeValue = ({target}) => {
+        const { value, name } = target;
+
+        switch(name) {
+        case 'nivel':
+            setNivelMagia(value);
+            break;
+        case 'titulo':
+            setTituloMagia(value);
+            break;
+        case 'comentario':
+            setComentarioMagia(value);
+            break;
+        default :
+            console.log("Parece que algo deu errado, procure o sábio mais próximo");
+            break;
+        }
+    };
+
+    const salvarMagia = () => {
+        setListaMagias([ ...listaMagias, {
+            'nivel': nivelMagia,
+            'titulo': tituloMagia,
+            'comentario': comentarioMagia,
+        }]);
+
+        setTituloMagia("");
+        setNivelMagia("");
+        setComentarioMagia("");
+    };
 
     return(
         <div>
-            <div>
-                Bloco de espaços de magia
-            </div>
+            {/*
+            <div>Bloco de espaços de magia</div>
+            <input type="text" placeholder="filtrar magia" />
+            */}
 
-            <input type="text" placeholder="magia buscada" />
-            <button
-                // onClick={() => criarSalvar()}
-            >
-                Criar magia
-            </button>
-            {/* <div hidden={esconderCriacao}>
+            <div>
                 <input
+                    placeholder="nivel da magia"
                     type="text"
                     onChange={(e) => changeValue(e)}
                     name="nivel"
+                    value={nivelMagia}
                 />
                 <input
+                    placeholder="titulo da magia"
                     type="text"
                     onChange={(e) => changeValue(e)}
                     name="titulo"
+                    value={tituloMagia}
                 />
                 <input
-                    placeholder="descrição da magia"
+                    placeholder="comentario da magia"
                     onChange={(e) => changeValue(e)}
                     name="comentario"
+                    value={comentarioMagia}
                 />
-            </div> */
-            }
+            </div>
+            <button onClick={() => salvarMagia()}>+</button>
+            
             {
                 listaMagias && listaMagias.map((magia, index) => (
                     <div key={magia.titulo}>
