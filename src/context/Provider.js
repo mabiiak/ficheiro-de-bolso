@@ -39,23 +39,7 @@ function Provider({ children }) {
 
     const [listaPericias, setListaPericias] = useState({});
 
-    const [listaMagias, setListaMagias] = useState([
-        {
-            nivel: 'truque',
-            titulo: 'toque arrepiante',
-            comentario: '1d8 necrotico',
-        },
-        {
-            nivel: 'nivel 1',
-            titulo: 'detectar magia',
-            comentario: '10min de concentração',
-        },
-        {
-            nivel: 'nivel 3',
-            titulo: 'bola de fogo',
-            comentario: '8d6 de dano',
-        }
-    ]);
+    const [listaMagias, setListaMagias] = useState([]);
 
     useEffect(() => {
         let verSalvos = JSON.parse(localStorage.getItem('personagem'));

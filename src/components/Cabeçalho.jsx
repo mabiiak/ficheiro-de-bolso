@@ -26,7 +26,7 @@ export default function Cabeçalho({titulo}) {
             habilidades: { ...defineHabilidades},
             pericias: { ...listaPericias },
             status,
-            magias: { ...listaMagias },
+            magias: listaMagias,
         }));
     };
 
