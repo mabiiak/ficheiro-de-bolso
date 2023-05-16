@@ -2,16 +2,11 @@ import React, {useContext, useEffect, useState} from 'react';
 import { Context } from '../context/Provider';
 
 export default function Magias() {
-    const {listaMagias, setListaMagias} = useContext(Context);
-    const [editando, setEditar] = useState(false);
+    const { listaMagias, setListaMagias, editando, setEditar } = useContext(Context);
 
     const [tituloMagia, setTituloMagia] = useState("");
     const [nivelMagia, setNivelMagia] = useState("");
     const [comentarioMagia, setComentarioMagia] = useState("");
-
-    function habilitarEdicao() {
-        setEditar(!editando);
-    };
 
     function editarItem(index, {target}) {
         const { value, name } = target;
@@ -110,7 +105,6 @@ export default function Magias() {
                     </div>
                 ))
             }
-            <button onClick={habilitarEdicao}>{editando ? "Salvar" : "Editar"}</button>
         </div>
     )
 };

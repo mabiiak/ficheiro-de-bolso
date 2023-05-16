@@ -37,8 +37,8 @@ function Provider({ children }) {
         mod: 0,
     });
 
+    const [editando, setEditar] = useState(false);
     const [listaPericias, setListaPericias] = useState({});
-
     const [listaMagias, setListaMagias] = useState([]);
 
     useEffect(() => {
@@ -53,6 +53,8 @@ function Provider({ children }) {
     }, []);
 
     const estadosGlobais = {
+        editando,
+        setEditar,
         defineHabilidades,
         setHabilidades,
         listaPericias,
