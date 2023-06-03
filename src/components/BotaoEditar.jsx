@@ -27,25 +27,35 @@ export default function BotaoEditar() {
         }));
     };
 
-    function habilitarEdicao(e) {
-        if (e.target.name === "Salvar") {
-            salvaHabilidades();
-        };
+  function habilitarEdicao(e) {
+    if (e.currentTarget.name === 'Salvar') {
+      salvaHabilidades()
+    }
 
-        setEditar(!editando);
-    };
+    setEditar(!editando)
+  }
 
-    return(           
-        <button
-            id="btn-edicao"
-            onClick={(e) => habilitarEdicao(e)}
-            name={editando ? "Salvar" : "Editar"}
-        >
-            {
-                editando
-                    ? <FontAwesomeIcon icon={faFloppyDisk} size="2xl" style={{color: "#ededed"}} />
-                    : <FontAwesomeIcon icon={faPenToSquare} size="2xl" style={{color: "#ededed"}} />
-            }
-        </button>
-    )
+  return (
+    <button
+      id="btn-edicao"
+      name={editando ? 'Salvar' : 'Editar'}
+      onClick={(e) => habilitarEdicao(e)}
+    >
+      {editando ? (
+        <FontAwesomeIcon
+          icon={faFloppyDisk}
+          size="2xl"
+          style={{ color: '#ededed' }}
+          title="Salvar"
+        />
+      ) : (
+        <FontAwesomeIcon
+          icon={faPenToSquare}
+          size="2xl"
+          style={{ color: '#ededed' }}
+          title="Editando"
+        />
+      )}
+    </button>
+  )
 }
