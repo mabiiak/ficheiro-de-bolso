@@ -1,31 +1,34 @@
-import React, { useContext } from "react";
-import { Context } from "../context/Provider";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFloppyDisk, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import './css/BotaoEditar.css';
+import React, { useContext } from 'react'
+import { Context } from '../context/Provider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFloppyDisk, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import './css/BotaoEditar.css'
 
 export default function BotaoEditar() {
-    const {
-        editando,
-        setEditar,
-        listaPericias,
-        defineHabilidades,
+  const {
+    editando,
+    setEditar,
+    listaPericias,
+    defineHabilidades,
+    descritivo,
+    moedas,
+    status,
+    listaMagias,
+  } = useContext(Context)
+
+  const salvaHabilidades = () => {
+    localStorage.setItem(
+      'personagem',
+      JSON.stringify({
         descritivo,
         moedas,
+        habilidades: { ...defineHabilidades },
+        pericias: { ...listaPericias },
         status,
-        listaMagias,
-    } = useContext(Context);
-
-    const salvaHabilidades = () => {
-        localStorage.setItem('personagem', JSON.stringify({
-            descritivo,
-            moedas,
-            habilidades: { ...defineHabilidades},
-            pericias: { ...listaPericias },
-            status,
-            magias: listaMagias,
-        }));
-    };
+        magias: listaMagias,
+      }),
+    )
+  }
 
   function habilitarEdicao(e) {
     if (e.currentTarget.name === 'Salvar') {
