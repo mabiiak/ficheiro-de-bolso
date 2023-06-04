@@ -1,16 +1,15 @@
-import React, { useContext } from "react";
-import { Context } from "../context/Provider";
+import React, { useContext } from 'react'
+import { Context } from '../context/Provider'
 import './css/Status.css'
 
 export default function Status() {
-    const { status, setStatus } = useContext(Context);
+  const { status, setStatus } = useContext(Context)
 
-    const changeValue = ({target}) => {
-        const { value, name } = target;
+  const changeValue = ({ target }) => {
+    const { value, name } = target
 
-        setStatus({ ...status, [name]: +value });
-    };
-
+    setStatus({ ...status, [name]: +value })
+  }
     return (
         <section id="status">
             <div className="status-triplo">

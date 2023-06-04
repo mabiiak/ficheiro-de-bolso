@@ -2,32 +2,32 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Context } from '../context/Provider'
 import './css/Pericias.css'
 
-function Pericias() {
-  const { listaPericias, setListaPericias, editando } = useContext(Context)
+function Itens() {
+  const { listaItens, setListaItens, editando } = useContext(Context)
 
-  const [nomePericias, setNomePericias] = useState('')
-  const [modificador, setModificador] = useState('')
+  const [nomeItens, setNomePericias] = useState('')
+  const [descricao, setDescricao] = useState('')
   const [lista, setLista] = useState([])
 
   useEffect(() => {
-    setLista(Object.entries(listaPericias))
-  }, [listaPericias])
+    setLista(Object.entries(listaItens))
+  }, [listaItens])
 
   const changeValue = ({ target }) => {
     const { value, name } = target
 
     if (name === 'nome') {
       setNomePericias(value)
-    } else if (name === 'modificador') {
-      setModificador(value)
+    } else if (name === 'descricao') {
+      setDescricao(value)
     }
   }
 
-  const salvaPericias = () => {
-    setListaPericias({ ...listaPericias, [nomePericias]: +modificador })
+  const salvaItens = () => {
+    setListaItens({ ...listaItens, [nomeItens]: descricao })
 
     setNomePericias('')
-    setModificador('')
+    setDescricao('')
   }
 
   const editarItem = (index, { target }) => {
@@ -37,14 +37,14 @@ function Pericias() {
     const valorAntigo = lista[index][1]
 
     if (name === 'nome') {
-      const novoObjeto = { ...listaPericias }
+      const novoObjeto = { ...listaItens }
       delete novoObjeto[chaveAntiga]
       novoObjeto[value] = valorAntigo
-      setListaPericias(novoObjeto)
+      setListaItens(novoObjeto)
     } else if (name === 'valor') {
-      const novoObjeto = { ...listaPericias }
+      const novoObjeto = { ...listaItens }
       novoObjeto[chaveAntiga] = +value
-      setListaPericias(novoObjeto)
+      setListaItens(novoObjeto)
     }
   }
 
@@ -79,19 +79,19 @@ function Pericias() {
           type="text"
           name="nome"
           placeholder="Pericia"
-          value={nomePericias}
+          value={nomeItens}
         />
         <input
           onChange={(e) => changeValue(e)}
           type="number"
-          name="modificador"
+          name="descricao"
           placeholder="+4"
-          value={modificador}
+          value={descricao}
         />
-        <button onClick={() => salvaPericias()}>+</button>
+        <button onClick={() => salvaItens()}>+</button>
       </div>
     </div>
   )
 }
 
-export default Pericias
+export default Itens
