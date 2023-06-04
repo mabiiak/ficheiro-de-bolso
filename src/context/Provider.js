@@ -41,6 +41,13 @@ function Provider({ children }) {
   const [listaPericias, setListaPericias] = useState([])
   const [listaMagias, setListaMagias] = useState([])
   const [listaItens, setListaItens] = useState([])
+  const editarLista = (e, index, set, lista) => {
+    const { value, name } = e.target
+
+    const listaEditada = [...lista]
+    listaEditada[index] = { ...listaEditada[index], [name]: value }
+    set(listaEditada)
+  }
 
   useEffect(() => {
     const verSalvos = JSON.parse(localStorage.getItem('personagem'))
@@ -70,6 +77,7 @@ function Provider({ children }) {
     setListaMagias,
     listaItens,
     setListaItens,
+    editarLista,
   }
 
   return <Context.Provider value={estadosGlobais}>{children}</Context.Provider>

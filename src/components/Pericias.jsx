@@ -1,17 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { Context } from '../context/Provider'
 import './css/Pericias.css'
 
 function Pericias() {
-  const { listaPericias, setListaPericias, editando } = useContext(Context)
+  const { listaPericias, setListaPericias, editando, editarLista } =
+    useContext(Context)
 
   const [nomePericias, setNomePericias] = useState('')
   const [modificador, setModificador] = useState('')
-  const [lista, setLista] = useState([])
-
-  useEffect(() => {
-    setLista(Object.entries(listaPericias))
-  }, [listaPericias])
 
   const changeValue = ({ target }) => {
     const { value, name } = target
@@ -24,51 +20,41 @@ function Pericias() {
   }
 
   const salvaPericias = () => {
-    setListaPericias({ ...listaPericias, [nomePericias]: +modificador })
+    setListaPericias([
+      ...listaPericias,
+      { nome: nomePericias, valor: +modificador },
+    ])
 
     setNomePericias('')
     setModificador('')
   }
 
-  const editarItem = (index, { target }) => {
-    const { value, name } = target
-
-    const chaveAntiga = lista[index][0]
-    const valorAntigo = lista[index][1]
-
-    if (name === 'nome') {
-      const novoObjeto = { ...listaPericias }
-      delete novoObjeto[chaveAntiga]
-      novoObjeto[value] = valorAntigo
-      setListaPericias(novoObjeto)
-    } else if (name === 'valor') {
-      const novoObjeto = { ...listaPericias }
-      novoObjeto[chaveAntiga] = +value
-      setListaPericias(novoObjeto)
-    }
-  }
-
   return (
     <div id="pericia">
-      {lista &&
-        lista.map((pericia, index) => (
-          <div key={pericia[0]} className="linhas-pericia criar-pericia">
+      {listaPericias &&
+        listaPericias.map((pericia, index) => (
+          <div key={index} className="linhas-pericia criar-pericia">
             <input
               id="nome-pericia"
-              onChange={(e) => editarItem(index, e)}
+              onChange={(e) =>
+                editarLista(e, index, setListaPericias, listaPericias)
+              }
               type="text"
               name="nome"
               placeholder="nome pericia"
-              value={pericia[0]}
-              readOnly={!editando}
+              value={pericia.nome}
+              disabled={!editando}
+              key={`valor_${index}`}
             />
             <input
               id="mod-pericia"
-              onChange={(e) => editarItem(index, e)}
+              onChange={(e) =>
+                editarLista(e, index, setListaPericias, listaPericias)
+              }
               type="text"
               name="valor"
               placeholder="Pericia"
-              value={pericia[1]}
+              value={pericia.valor}
               readOnly={!editando}
             />
           </div>
@@ -84,7 +70,7 @@ function Pericias() {
         <input
           onChange={(e) => changeValue(e)}
           type="number"
-          name="modificador"
+          name="valor"
           placeholder="+4"
           value={modificador}
         />

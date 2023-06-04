@@ -1,0 +1,21 @@
+.espacos-de-magia{
+    display: flex;
+    gap: var(--gap-padrao);
+}
+.espacos-de-magia div{
+    display: grid;
+    gap: var(--gap-padrao);
+    padding: .6rem;
+    border-radius: var(--border-radious);
+    background: var(--main-background-color);
+}
+.espacos-de-magia p{
+    font-size: .7rem;
+    text-transform: capitalize;
+}
+.espacos-de-magia .quantidade-espacos{
+    height: .7rem;
+    font-size: .7rem;
+    border: none;
+    background: transparent;
+}

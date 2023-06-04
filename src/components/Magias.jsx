@@ -1,20 +1,14 @@
 import React, { useContext, useState } from 'react'
 import { Context } from '../context/Provider'
+import './css/Magias.css'
 
 export default function Magias() {
-  const { listaMagias, setListaMagias, editando } = useContext(Context)
+  const { listaMagias, setListaMagias, editando, editarLista } =
+    useContext(Context)
 
   const [tituloMagia, setTituloMagia] = useState('')
   const [nivelMagia, setNivelMagia] = useState('')
   const [comentarioMagia, setComentarioMagia] = useState('')
-
-  const editarItem = (index, { target }) => {
-    const { value, name } = target
-
-    const novaListaMagias = [...listaMagias]
-    novaListaMagias[index] = { ...novaListaMagias[index], [name]: value }
-    setListaMagias(novaListaMagias)
-  }
 
   const changeValue = ({ target }) => {
     const { value, name } = target
@@ -56,6 +50,53 @@ export default function Magias() {
             <div>Bloco de espaços de magia</div>
             <input type="text" placeholder="filtrar magia" />
             */}
+      <div className="espacos-de-magia">
+        <div>
+          <p>nivel 1</p>
+          <input type="number" className="quantidade-espacos" placeholder="0" />
+          <input type="number" className="espacos-usados" />
+        </div>
+        <div>
+          <p>nivel 2</p>
+          <input type="number" className="quantidade-espacos" placeholder="0" />
+          <input type="number" className="espacos-usados" />
+        </div>
+        <div>
+          <p>nivel 3</p>
+          <input type="number" className="quantidade-espacos" placeholder="0" />
+          <input type="number" className="espacos-usados" />
+        </div>
+        <div>
+          <p>nivel 4</p>
+          <input type="number" className="quantidade-espacos" placeholder="0" />
+          <input type="number" className="espacos-usados" />
+        </div>
+        <div>
+          <p>nivel 5</p>
+          <input type="number" className="quantidade-espacos" placeholder="0" />
+          <input type="number" className="espacos-usados" />
+        </div>
+        <div>
+          <p>nivel 6</p>
+          <input type="number" className="quantidade-espacos" placeholder="0" />
+          <input type="number" className="espacos-usados" />
+        </div>
+        <div>
+          <p>nivel 7</p>
+          <input type="number" className="quantidade-espacos" placeholder="0" />
+          <input type="number" className="espacos-usados" />
+        </div>
+        <div>
+          <p>nivel 8</p>
+          <input type="number" className="quantidade-espacos" placeholder="0" />
+          <input type="number" className="espacos-usados" />
+        </div>
+        <div>
+          <p>nivel 9</p>
+          <input type="number" className="quantidade-espacos" placeholder="0" />
+          <input type="number" className="espacos-usados" />
+        </div>
+      </div>
 
       <div>
         <input
@@ -83,24 +124,30 @@ export default function Magias() {
 
       {listaMagias &&
         listaMagias.map((magia, index) => (
-          <div key={magia.titulo}>
+          <div key={index}>
             <input
               className="campoEditavel"
-              onChange={(e) => editarItem(index, e)}
+              onChange={(e) =>
+                editarLista(e, index, setListaMagias, listaMagias)
+              }
               name="nivel"
               value={magia.nivel}
               readOnly={!editando}
             />
             <input
               className="campoEditavel"
-              onChange={(e) => editarItem(index, e)}
+              onChange={(e) =>
+                editarLista(e, index, setListaMagias, listaMagias)
+              }
               name="titulo"
               value={magia.titulo}
               readOnly={!editando}
             />
             <input
               className="campoEditavel"
-              onChange={(e) => editarItem(index, e)}
+              onChange={(e) =>
+                editarLista(e, index, setListaMagias, listaMagias)
+              }
               name="comentario"
               value={magia.comentario}
               readOnly={!editando}
