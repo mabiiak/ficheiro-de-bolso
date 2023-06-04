@@ -5,18 +5,24 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
+  font-size: 62.5%;
   --font-title-color: rgb(255, 255, 255);
   --main-color: hsla(201, 34%, 47%, 1);
-  --background-color: hsla(0, 0%, 80%, 1);
+  --body-background-color: hsla(0, 0%, 80%, 1);
+  --main-background-color:#EDEDED;
   --border-radious: 5px 5px 0 0;
-  --padding-padrao: 5px 10px;
+  --main-padding-inp-button: 1rem 2rem;
+  --padding-padrao: .5rem 1rem;
+  --gap-padrao: 3px;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #CDCDCD;
+  background-color: var(--body-background-color);
   position: relative;
   height: 100vh;
+}
+input{
+  width: 100%;
 }

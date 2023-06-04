@@ -6,7 +6,7 @@
 
 #titulos {
     align-items: center;
-    background-color: #4F83A0;
+    background-color: var(--main-color);
     border-radius: 15px 15px 0 0;
     color: #FFFFFF;
     display: flex;
@@ -17,6 +17,7 @@
 
 #titulos > p {
     margin-left: 15px;
+    text-transform: uppercase;
 }
 
 #setaGrid {

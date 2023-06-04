@@ -1,36 +1,38 @@
+.status-input, .linha-descritiva input{
+    border: none;
+    background-color: transparent;
+    text-align: center;
+}
 #status {
-    display: flex;
-    justify-content: space-between;
-    padding: var(--padding-padrao);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap-padrao);
     width: 100%;
-    border-radius: 0 0 35px 35px;
-    overflow: hidden;
+    padding: var(--padding-padrao);
+}
+
+.status-triplo {
+    display: grid;
+    height: 100%;
+    background-color: var(--main-background-color);
+    justify-content: space-between;
+    padding: .5rem;
+    border-radius: var(--border-radious);
 }
 
 .linha-descritiva {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0 1%; 
-    display: inline;
     font-size: 12px;
-
+    height: 24px;
 }
-
-
-
-#status-triplo {
-    background-color: #EDEDED;
-    display: flex;
-    height: 60px;
-    justify-content: space-between;
-    width: 24%;
-    padding: 0 1%; 
+.linha-descritiva input{
+    width: 50px;
+    text-align: end;
 }
-
-
-
-.status-duplo {
-    background-color: #EDEDED;
-    display: flex;
-    height: 60px;
-    justify-content: space-between;
-    width: 24%;
+.status-input{
+    font-size: 2.4rem;
+    height: 3rem;
 }

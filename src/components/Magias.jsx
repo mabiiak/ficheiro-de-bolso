@@ -46,10 +46,6 @@ export default function Magias() {
 
   return (
     <div>
-      {/*
-            <div>Bloco de espaços de magia</div>
-            <input type="text" placeholder="filtrar magia" />
-            */}
       <div className="espacos-de-magia">
         <div>
           <p>nivel 1</p>
@@ -97,7 +93,6 @@ export default function Magias() {
           <input type="number" className="espacos-usados" />
         </div>
       </div>
-
       <div>
         <input
           placeholder="nivel da magia"

@@ -13,7 +13,7 @@
 
 .gallery-header h1 {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 2rem;
   text-transform: uppercase;
   line-height: 2.2rem;
   color: var(--font-title-color);
@@ -25,7 +25,6 @@
   width: 2rem;
   background-color: transparent;
   cursor: pointer;
-
 }
 
 .gallery-button img {
@@ -35,7 +34,7 @@
 }
 
 .gallery-button svg path {
-    fill: red;
+  fill: red;
 }
 
 .menu-modal {
@@ -45,8 +44,8 @@
 }
 
 .menu-modal a {
-  font-size: 14px;
-  /* line-height: 1.6rem; */
+  font-size: 1.4rem;
+  line-height: 1.6rem;
   text-decoration: none;
   color: var(--font-title-color);
 }

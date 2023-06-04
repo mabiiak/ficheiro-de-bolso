@@ -2,18 +2,16 @@
     padding: var(--padding-padrao);
 }
 
-
-
 #linha-nome {
     align-items: center;
     display: flex;
     margin-bottom: 3px;
-    gap: 3px;
+    gap: var(--gap-padrao);
 }
 #linha-nome label {
     align-items: center;
     border-radius: 10px 10px 0 0;
-    background-color: #EDEDED;
+    background-color: var(--main-background-color);
     display: flex;
     font-size: 12px;
     height: 25px;
@@ -21,23 +19,21 @@
     width: 100%;
 }
 #linha-nome input {
-    background-color: #EDEDED;
+    background-color: var(--main-background-color);
     border: none;
     margin-left: 5px;
-    width: 99%;
+    width: 100%;
 }
-
-
 
 #linha-tripla {
     align-items: center;
     display: flex;
     margin-bottom: 3px;
-    gap: 3px;
+    gap: var(--gap-padrao);
 }
 #linha-tripla label {
     align-items: center;
-    background-color: #EDEDED;
+    background-color: var(--main-background-color);
     display: flex;
     font-size: 12px;
     height: 25px;
@@ -45,23 +41,21 @@
     width: 50%;
 }
 #linha-tripla input {
-    background-color: #EDEDED;
+    background-color: var(--main-background-color);
     border: none;
     text-align: center;
     width: 99%;
 }
 
-
-
 #linha-dupla {
     align-items: center;
     display: flex;
     margin-bottom: 3px;
-    gap: 3px;
+    gap: var(--gap-padrao);
 }
 #linha-dupla label {
     align-items: center;
-    background-color: #EDEDED;
+    background-color: var(--main-background-color);
     display: flex;
     font-size: 12px;
     height: 25px;
@@ -69,7 +63,7 @@
     width: 50%;
 }
 #linha-dupla input {
-    background-color: #EDEDED;
+    background-color: var(--main-background-color);
     border: none;
     margin-left: 5px;
     width: 99%;
@@ -80,11 +74,11 @@
 #linha-moedas {
     align-items: center;
     display: flex;
-    gap: 3px;
+    gap: var(--gap-padrao);
 }
 #linha-moedas label {
     align-items: center;
-    background-color: #EDEDED;
+    background-color: var(--main-background-color);
     display: flex;
     height: 25px;
     font-size: 14px;
@@ -92,7 +86,7 @@
     width: 25%;
 }
 #linha-moedas input {
-    background-color: #EDEDED;
+    background-color: var(--main-background-color);
     border: none;
     text-align: center;
     width: 99%;
