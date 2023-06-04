@@ -40,6 +40,7 @@ function Provider({ children }) {
   const [editando, setEditar] = useState(false)
   const [listaPericias, setListaPericias] = useState([])
   const [listaMagias, setListaMagias] = useState([])
+  const [listaItens, setListaItens] = useState([])
 
   useEffect(() => {
     const verSalvos = JSON.parse(localStorage.getItem('personagem'))
@@ -67,6 +68,8 @@ function Provider({ children }) {
     setStatus,
     listaMagias,
     setListaMagias,
+    listaItens,
+    setListaItens,
   }
 
   return <Context.Provider value={estadosGlobais}>{children}</Context.Provider>

@@ -9,6 +9,7 @@ import Descritivo from '../components/Descritivo'
 import Status from '../components/Status'
 import Magias from '../components/Magias'
 import BotaoEditar from '../components/BotaoEditar'
+import Itens from '../components/Itens'
 
 export default function Ficha() {
   const habilidadesPericias = () => (
@@ -19,6 +20,7 @@ export default function Ficha() {
   )
 
   const listaMagias = () => <Magias />
+  const listaItens = () => <Itens />
 
   return (
     <div>
@@ -34,7 +36,7 @@ export default function Ficha() {
       <TituloExpansivo titulo="Magias" body={listaMagias()} />
 
       {/* Itens */}
-      <TituloExpansivo titulo="Itens" />
+      <TituloExpansivo titulo="Itens" body={listaItens()} />
 
       <TituloExpansivo
         titulo="Idiomas e Proeficiencias"
