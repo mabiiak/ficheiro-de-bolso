@@ -55,7 +55,7 @@ function Pericias() {
               name="valor"
               placeholder="Pericia"
               value={pericia.valor}
-              readOnly={!editando}
+              disabled={!editando}
             />
           </div>
         ))}

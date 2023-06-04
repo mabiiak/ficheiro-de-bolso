@@ -28,7 +28,7 @@ function Itens() {
 
   return (
     <div id="pericia">
-      {listaItens &&
+      {listaItens.length &&
         listaItens.map((pericia, index) => (
           <div key={index} className="linhas-pericia criar-pericia">
             <input

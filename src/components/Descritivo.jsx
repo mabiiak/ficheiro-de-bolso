@@ -3,16 +3,14 @@ import { Context } from '../context/Provider'
 import './css/Descritivo.css'
 
 export default function Descritivo() {
-  const { descritivo, setDescritivo, moedas, setMoedas } = useContext(Context)
+  const { descritivo, setDescritivo, moedas, setMoedas, editando } =
+    useContext(Context)
 
   const changeValue = ({ target }) => {
     const { value, name, id } = target
 
     if (id === 'moedas') {
-      setMoedas({
-        ...moedas,
-        [name]: +value,
-      })
+      setMoedas({ ...moedas, [name]: +value })
     } else {
       setDescritivo({ ...descritivo, [name]: value })
     }
@@ -28,6 +26,7 @@ export default function Descritivo() {
             onChange={(e) => changeValue(e)}
             type="text"
             value={descritivo.nome}
+            disabled={!editando}
           />
         </label>
       </div>
@@ -39,6 +38,7 @@ export default function Descritivo() {
             onChange={(e) => changeValue(e)}
             type="text"
             value={descritivo.classe}
+            disabled={!editando}
           />
         </label>
         <label>
@@ -48,6 +48,7 @@ export default function Descritivo() {
             onChange={(e) => changeValue(e)}
             type="number"
             value={descritivo.nivel}
+            disabled={!editando}
           />
         </label>
         <label>
@@ -57,6 +58,7 @@ export default function Descritivo() {
             onChange={(e) => changeValue(e)}
             type="text"
             value={descritivo.raca}
+            disabled={!editando}
           />
         </label>
       </div>
@@ -68,6 +70,7 @@ export default function Descritivo() {
             onChange={(e) => changeValue(e)}
             type="text"
             value={descritivo.antecedente}
+            disabled={!editando}
           />
         </label>
         <label>
@@ -77,6 +80,7 @@ export default function Descritivo() {
             onChange={(e) => changeValue(e)}
             type="text"
             value={descritivo.alinhamento}
+            disabled={!editando}
           />
         </label>
       </div>
@@ -89,6 +93,7 @@ export default function Descritivo() {
             onChange={(e) => changeValue(e)}
             type="number"
             value={moedas.po}
+            disabled={!editando}
           />
         </label>
         <label>
@@ -99,6 +104,7 @@ export default function Descritivo() {
             onChange={(e) => changeValue(e)}
             type="number"
             value={moedas.pp}
+            disabled={!editando}
           />
         </label>
         <label>
@@ -109,6 +115,7 @@ export default function Descritivo() {
             onChange={(e) => changeValue(e)}
             type="number"
             value={moedas.pc}
+            disabled={!editando}
           />
         </label>
         <label>
@@ -119,6 +126,7 @@ export default function Descritivo() {
             onChange={(e) => changeValue(e)}
             type="number"
             value={moedas.pb}
+            disabled={!editando}
           />
         </label>
       </div>

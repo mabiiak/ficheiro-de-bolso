@@ -84,7 +84,7 @@ function Habilidades() {
           name="Forca"
           value={+defineHabilidades.forca}
           onChange={(e) => changeValue(e)}
-          readOnly={!editando}
+          disabled={!editando}
         />
         <p>Força</p>
         <span>{calcMoficador(defineHabilidades.forca)}</span>
@@ -96,7 +96,7 @@ function Habilidades() {
           name="Destreza"
           value={+defineHabilidades.destreza}
           onChange={(e) => changeValue(e)}
-          readOnly={!editando}
+          disabled={!editando}
         />
         <p>Destreza</p>
         <span>{calcMoficador(defineHabilidades.destreza)}</span>
@@ -107,7 +107,7 @@ function Habilidades() {
           name="Constituicao"
           value={+defineHabilidades.constituicao}
           onChange={(e) => changeValue(e)}
-          readOnly={!editando}
+          disabled={!editando}
         />
         <p>Constituição</p>
         <span>{calcMoficador(defineHabilidades.constituicao)}</span>
@@ -118,7 +118,7 @@ function Habilidades() {
           name="Inteligencia"
           value={+defineHabilidades.inteligencia}
           onChange={(e) => changeValue(e)}
-          readOnly={!editando}
+          disabled={!editando}
         />
         <p>Inteligencia</p>
         <span>{calcMoficador(defineHabilidades.inteligencia)}</span>
@@ -129,7 +129,7 @@ function Habilidades() {
           name="Sabedoria"
           value={+defineHabilidades.sabedoria}
           onChange={(e) => changeValue(e)}
-          readOnly={!editando}
+          disabled={!editando}
         />
         <p>Sabedoria</p>
         <span>{calcMoficador(defineHabilidades.sabedoria)}</span>
@@ -140,7 +140,7 @@ function Habilidades() {
           name="Carisma"
           value={+defineHabilidades.carisma}
           onChange={(e) => changeValue(e)}
-          readOnly={!editando}
+          disabled={!editando}
         />
         <p>Carisma</p>
         <span>{calcMoficador(defineHabilidades.carisma)}</span>
