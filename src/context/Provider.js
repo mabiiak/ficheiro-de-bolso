@@ -38,7 +38,7 @@ function Provider({ children }) {
   })
 
   const [editando, setEditar] = useState(false)
-  const [listaPericias, setListaPericias] = useState({})
+  const [listaPericias, setListaPericias] = useState([])
   const [listaMagias, setListaMagias] = useState([])
 
   useEffect(() => {
