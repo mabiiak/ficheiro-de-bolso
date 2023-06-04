@@ -1,5 +1,7 @@
-import React, { useContext, useState } from 'react'
-import { Context } from '../context/Provider'
+import React, {useContext, useEffect, useState} from 'react';
+import { Context } from '../context/Provider';
+import './css/Magias.css'
+
 
 export default function Magias() {
   const { listaMagias, setListaMagias, editando } = useContext(Context)
@@ -57,6 +59,55 @@ export default function Magias() {
             <input type="text" placeholder="filtrar magia" />
             */}
 
+    return(
+        <div>
+            <div className='espacos-de-magia'>
+                <div>
+                    <p>nivel 1</p>
+                    <input type="number" className='quantidade-espacos'placeholder='0'/>
+                    <input type="number" className='espacos-usados'/>
+                </div>
+                <div>
+                    <p>nivel 2</p>
+                    <input type="number" className='quantidade-espacos'placeholder='0'/>
+                    <input type="number" className='espacos-usados'/>
+                </div>
+                <div>
+                    <p>nivel 3</p>
+                    <input type="number" className='quantidade-espacos'placeholder='0'/>
+                    <input type="number" className='espacos-usados'/>
+                </div>
+                <div>
+                    <p>nivel 4</p>
+                    <input type="number" className='quantidade-espacos'placeholder='0'/>
+                    <input type="number" className='espacos-usados'/>
+                </div>
+                <div>
+                    <p>nivel 5</p>
+                    <input type="number" className='quantidade-espacos'placeholder='0'/>
+                    <input type="number" className='espacos-usados'/>
+                </div>
+                <div>
+                    <p>nivel 6</p>
+                    <input type="number" className='quantidade-espacos'placeholder='0'/>
+                    <input type="number" className='espacos-usados'/>
+                </div>
+                <div>
+                    <p>nivel 7</p>
+                    <input type="number" className='quantidade-espacos'placeholder='0'/>
+                    <input type="number" className='espacos-usados'/>
+                </div>
+                <div>
+                    <p>nivel 8</p>
+                    <input type="number" className='quantidade-espacos'placeholder='0'/>
+                    <input type="number" className='espacos-usados'/>
+                </div>
+                <div>
+                    <p>nivel 9</p>
+                    <input type="number" className='quantidade-espacos'placeholder='0'/>
+                    <input type="number" className='espacos-usados'/>
+                </div>
+            </div>
       <div>
         <input
           placeholder="nivel da magia"
