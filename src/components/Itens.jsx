@@ -1,94 +1,74 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { Context } from '../context/Provider'
 import './css/Pericias.css'
 
 function Itens() {
-  const { listaItens, setListaItens, editando } = useContext(Context)
+  const { listaItens, setListaItens, editando, editarLista } =
+    useContext(Context)
 
-  const [nomeItens, setNomePericias] = useState('')
-  const [descricao, setDescricao] = useState('')
-  const [lista, setLista] = useState([])
+  const [chaveNome, setChaveNome] = useState('')
+  const [chaveValor, setChaveValor] = useState('')
 
-  useEffect(() => {
-    setLista(Object.entries(listaItens))
-  }, [listaItens])
-
-  const changeValue = ({ target }) => {
+  const obterValor = ({ target }) => {
     const { value, name } = target
 
     if (name === 'nome') {
-      setNomePericias(value)
-    } else if (name === 'descricao') {
-      setDescricao(value)
-    }
-  }
-
-  const salvaItens = () => {
-    setListaItens({ ...listaItens, [nomeItens]: descricao })
-
-    setNomePericias('')
-    setDescricao('')
-  }
-
-  const editarItem = (index, { target }) => {
-    const { value, name } = target
-
-    const chaveAntiga = lista[index][0]
-    const valorAntigo = lista[index][1]
-
-    if (name === 'nome') {
-      const novoObjeto = { ...listaItens }
-      delete novoObjeto[chaveAntiga]
-      novoObjeto[value] = valorAntigo
-      setListaItens(novoObjeto)
+      setChaveNome(value)
     } else if (name === 'valor') {
-      const novoObjeto = { ...listaItens }
-      novoObjeto[chaveAntiga] = +value
-      setListaItens(novoObjeto)
+      setChaveValor(value)
     }
+  }
+
+  const salvaPericias = () => {
+    setListaItens([...listaItens, { nome: chaveNome, valor: +chaveValor }])
+
+    setChaveNome('')
+    setChaveValor('')
   }
 
   return (
     <div id="pericia">
-      {lista &&
-        lista.map((pericia, index) => (
-          <div key={pericia[0]} className="linhas-pericia criar-pericia">
-            <input
-              id="nome-pericia"
-              onChange={(e) => editarItem(index, e)}
-              type="text"
-              name="nome"
-              placeholder="nome pericia"
-              value={pericia[0]}
-              readOnly={!editando}
-            />
+      {listaItens &&
+        listaItens.map((pericia, index) => (
+          <div key={index} className="linhas-pericia criar-pericia">
             <input
               id="mod-pericia"
-              onChange={(e) => editarItem(index, e)}
+              onChange={(e) => editarLista(e, index, setListaItens, listaItens)}
               type="text"
               name="valor"
-              placeholder="Pericia"
-              value={pericia[1]}
+              placeholder="QTD"
+              value={pericia.valor}
               readOnly={!editando}
             />
+            <input
+              id="nome-pericia"
+              onChange={(e) => editarLista(e, index, setListaItens, listaItens)}
+              type="text"
+              name="nome"
+              placeholder="nome item"
+              value={pericia.nome}
+              disabled={!editando}
+              key={`valor_${index}`}
+            />
+            {editando && <button>Excluir</button>}
           </div>
         ))}
       <div className="criar-pericia">
         <input
-          onChange={(e) => changeValue(e)}
-          type="text"
-          name="nome"
-          placeholder="Pericia"
-          value={nomeItens}
+          onChange={(e) => obterValor(e)}
+          type="number"
+          name="valor"
+          placeholder="quantidade"
+          value={chaveValor}
         />
         <input
-          onChange={(e) => changeValue(e)}
-          type="number"
-          name="descricao"
-          placeholder="+4"
-          value={descricao}
+          onChange={(e) => obterValor(e)}
+          type="text"
+          name="nome"
+          placeholder="item"
+          value={chaveNome}
         />
-        <button onClick={() => salvaItens()}>+</button>
+        <button onClick={() => salvaPericias()}>+</button>
       </div>
     </div>
   )

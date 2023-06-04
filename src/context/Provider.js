@@ -41,6 +41,8 @@ function Provider({ children }) {
   const [listaPericias, setListaPericias] = useState([])
   const [listaMagias, setListaMagias] = useState([])
   const [listaItens, setListaItens] = useState([])
+  const [listaProeficiencias, setListaProeficiencias] = useState([])
+
   const editarLista = (e, index, set, lista) => {
     const { value, name } = e.target
 
@@ -57,6 +59,8 @@ function Provider({ children }) {
       setDescritivo(verSalvos.descritivo)
       setStatus(verSalvos.status)
       setListaMagias(verSalvos.magias)
+      setListaItens(verSalvos)
+      setListaProeficiencias(verSalvos)
     }
   }, [])
 
@@ -77,6 +81,8 @@ function Provider({ children }) {
     setListaMagias,
     listaItens,
     setListaItens,
+    listaProeficiencias,
+    setListaProeficiencias,
     editarLista,
   }
 
