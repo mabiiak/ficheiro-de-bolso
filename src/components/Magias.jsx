@@ -8,7 +8,7 @@ export default function Magias() {
   const [nivelMagia, setNivelMagia] = useState('')
   const [comentarioMagia, setComentarioMagia] = useState('')
 
-  function editarItem(index, { target }) {
+  const editarItem = (index, { target }) => {
     const { value, name } = target
 
     const novaListaMagias = [...listaMagias]
