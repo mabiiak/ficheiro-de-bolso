@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Context } from '../context/Provider'
 import './css/Pericias.css'
 
@@ -8,6 +8,13 @@ function Itens() {
 
   const [chaveNome, setChaveNome] = useState('')
   const [chaveValor, setChaveValor] = useState('')
+
+  const [filtro, setFiltro] = useState('')
+  const [lista, setLista] = useState(listaItens)
+
+  useEffect(() => {
+    setLista(listaItens)
+  }, [listaItens])
 
   const obterValor = ({ target }) => {
     const { value, name } = target
@@ -26,10 +33,37 @@ function Itens() {
     setChaveValor('')
   }
 
+  const filtrarMagia = (e) => {
+    const busca = e.target.value
+    setFiltro(busca)
+
+    const listaFiltrada = listaItens.filter((item) =>
+      Object.values(item).some((valor) => valor.toString().includes(busca)),
+    )
+
+    setLista(listaFiltrada)
+  }
+
   return (
     <div id="pericia">
-      {listaItens.length &&
-        listaItens.map((pericia, index) => (
+      <div>
+        <input
+          type="text"
+          placeholder="filtrar item por nome ou nivel"
+          onChange={(e) => filtrarMagia(e)}
+          value={filtro}
+        />
+        <button
+          onClick={() => {
+            setFiltro('')
+            setLista(lista)
+          }}
+        >
+          x-limpar
+        </button>
+      </div>
+      {lista.length &&
+        lista.map((pericia, index) => (
           <div key={index} className="linhas-pericia criar-pericia">
             <input
               id="mod-pericia"

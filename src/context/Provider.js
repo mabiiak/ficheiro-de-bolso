@@ -59,7 +59,7 @@ function Provider({ children }) {
       setDescritivo(verSalvos.descritivo)
       setStatus(verSalvos.status)
       setListaMagias(verSalvos.magias)
-      setListaItens(verSalvos)
+      setListaItens(verSalvos.itens)
       setListaProeficiencias(verSalvos)
     }
   }, [])

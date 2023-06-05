@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../context/Provider'
 import './css/Magias.css'
 
@@ -9,6 +9,13 @@ export default function Magias() {
   const [tituloMagia, setTituloMagia] = useState('')
   const [nivelMagia, setNivelMagia] = useState('')
   const [comentarioMagia, setComentarioMagia] = useState('')
+
+  const [filtro, setFiltro] = useState('')
+  const [lista, setLista] = useState(listaMagias)
+
+  useEffect(() => {
+    setLista(listaMagias)
+  }, [listaMagias])
 
   const changeValue = ({ target }) => {
     const { value, name } = target
@@ -42,6 +49,17 @@ export default function Magias() {
     setTituloMagia('')
     setNivelMagia('')
     setComentarioMagia('')
+  }
+
+  const filtrarMagia = (e) => {
+    const busca = e.target.value
+    setFiltro(busca)
+
+    const listaFiltrada = listaMagias.filter((magia) =>
+      Object.values(magia).some((valor) => valor.includes(busca)),
+    )
+
+    setLista(listaFiltrada)
   }
 
   return (
@@ -95,6 +113,22 @@ export default function Magias() {
       </div>
       <div>
         <input
+          type="text"
+          placeholder="filtrar magia por nome ou nivel"
+          onChange={(e) => filtrarMagia(e)}
+          value={filtro}
+        />
+        <button
+          onClick={() => {
+            setFiltro('')
+            setLista(lista)
+          }}
+        >
+          x-limpar
+        </button>
+      </div>
+      <div>
+        <input
           placeholder="nivel da magia"
           type="text"
           onChange={(e) => changeValue(e)}
@@ -117,8 +151,8 @@ export default function Magias() {
       </div>
       <button onClick={() => salvarMagia()}>+</button>
 
-      {listaMagias &&
-        listaMagias.map((magia, index) => (
+      {lista &&
+        lista.map((magia, index) => (
           <div key={index}>
             <input
               className="campoEditavel"
