@@ -10,6 +10,7 @@ import Status from '../components/Status'
 import Magias from '../components/Magias'
 import BotaoEditar from '../components/BotaoEditar'
 import Itens from '../components/Itens'
+import Proeficiencias from '../components/Proeficiencias'
 
 export default function Ficha() {
   const habilidadesPericias = () => (
@@ -21,6 +22,7 @@ export default function Ficha() {
 
   const listaMagias = () => <Magias />
   const listaItens = () => <Itens />
+  const listaProeficiencias = () => <Proeficiencias />
 
   return (
     <div>
@@ -31,18 +33,12 @@ export default function Ficha() {
         titulo="Habilidades e Pericias"
         body={habilidadesPericias()}
       />
-
-      {/* Magias */}
       <TituloExpansivo titulo="Magias" body={listaMagias()} />
-
-      {/* Itens */}
       <TituloExpansivo titulo="Itens" body={listaItens()} />
-
       <TituloExpansivo
         titulo="Idiomas e Proeficiencias"
-        // body={habilidadesPericias()}
+        body={listaProeficiencias()}
       />
-
       <BotaoEditar />
     </div>
   )

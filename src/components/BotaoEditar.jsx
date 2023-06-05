@@ -15,6 +15,7 @@ export default function BotaoEditar() {
     status,
     listaMagias,
     listaItens,
+    listaProeficiencias,
   } = useContext(Context)
 
   const salvaHabilidades = () => {
@@ -28,7 +29,7 @@ export default function BotaoEditar() {
         status,
         magias: listaMagias,
         itens: listaItens,
-        proeficiencias: [],
+        proeficiencias: listaProeficiencias,
       }),
     )
   }
