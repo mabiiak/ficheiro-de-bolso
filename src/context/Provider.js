@@ -42,6 +42,7 @@ function Provider({ children }) {
   const [listaMagias, setListaMagias] = useState([])
   const [listaItens, setListaItens] = useState([])
   const [listaProeficiencias, setListaProeficiencias] = useState([])
+  const [listaAnotacoes, setListaAnotacoes] = useState([])
 
   const editarLista = (e, index, set, lista) => {
     const { value, name } = e.target
@@ -66,6 +67,7 @@ function Provider({ children }) {
       setListaMagias(verSalvos.magias)
       setListaItens(verSalvos.itens)
       setListaProeficiencias(verSalvos.proeficiencias)
+      setListaAnotacoes(verSalvos.anotacoes)
     }
   }, [])
 
@@ -88,6 +90,8 @@ function Provider({ children }) {
     setListaItens,
     listaProeficiencias,
     setListaProeficiencias,
+    listaAnotacoes,
+    setListaAnotacoes,
     editarLista,
     excluirItem,
   }

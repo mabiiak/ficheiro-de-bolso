@@ -2,10 +2,10 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Context } from '../context/Provider'
 import './css/Pericias.css'
 
-function Proeficiencias() {
+function Anotacoes() {
   const {
-    listaProeficiencias,
-    setListaProeficiencias,
+    listaAnotacoes,
+    setListaAnotacoes,
     editando,
     editarLista,
     excluirItem,
@@ -15,11 +15,11 @@ function Proeficiencias() {
   const [chaveValor, setChaveValor] = useState('')
 
   const [filtro, setFiltro] = useState('')
-  const [lista, setLista] = useState(listaProeficiencias)
+  const [lista, setLista] = useState(listaAnotacoes)
 
   useEffect(() => {
-    setLista(listaProeficiencias)
-  }, [listaProeficiencias])
+    setLista(listaAnotacoes)
+  }, [listaAnotacoes])
 
   const obterValor = ({ target }) => {
     const { value, name } = target
@@ -30,8 +30,8 @@ function Proeficiencias() {
   }
 
   const salvar = () => {
-    setListaProeficiencias([
-      ...listaProeficiencias,
+    setListaAnotacoes([
+      ...listaAnotacoes,
       { nome: chaveNome, valor: +chaveValor },
     ])
 
@@ -43,7 +43,7 @@ function Proeficiencias() {
     const busca = e.target.value
     setFiltro(busca)
 
-    const listaFiltrada = listaProeficiencias.filter((item) =>
+    const listaFiltrada = listaAnotacoes.filter((item) =>
       Object.values(item).some((valor) => valor.toString().includes(busca)),
     )
 
@@ -62,7 +62,7 @@ function Proeficiencias() {
         <button
           onClick={() => {
             setFiltro('')
-            setLista(listaProeficiencias)
+            setLista(listaAnotacoes)
           }}
         >
           x-limpar
@@ -74,12 +74,7 @@ function Proeficiencias() {
             <input
               id="nome-pericia"
               onChange={(e) =>
-                editarLista(
-                  e,
-                  index,
-                  setListaProeficiencias,
-                  listaProeficiencias,
-                )
+                editarLista(e, index, setListaAnotacoes, listaAnotacoes)
               }
               type="text"
               name="nome"
@@ -91,11 +86,7 @@ function Proeficiencias() {
             {editando && (
               <button
                 onClick={() =>
-                  excluirItem(
-                    index,
-                    listaProeficiencias,
-                    setListaProeficiencias,
-                  )
+                  excluirItem(index, listaAnotacoes, setListaAnotacoes)
                 }
               >
                 Excluir
@@ -108,7 +99,7 @@ function Proeficiencias() {
           onChange={(e) => obterValor(e)}
           type="text"
           name="nome"
-          placeholder="item"
+          placeholder="anotacao livre"
           value={chaveNome}
           required
         />
@@ -120,4 +111,4 @@ function Proeficiencias() {
   )
 }
 
-export default Proeficiencias
+export default Anotacoes

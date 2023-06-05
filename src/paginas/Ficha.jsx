@@ -11,6 +11,7 @@ import Magias from '../components/Magias'
 import BotaoEditar from '../components/BotaoEditar'
 import Itens from '../components/Itens'
 import Proeficiencias from '../components/Proeficiencias'
+import Anotacoes from '../components/Anotacoes'
 
 export default function Ficha() {
   const habilidadesPericias = () => (
@@ -23,6 +24,7 @@ export default function Ficha() {
   const listaMagias = () => <Magias />
   const listaItens = () => <Itens />
   const listaProeficiencias = () => <Proeficiencias />
+  const listaAnotacoes = () => <Anotacoes />
 
   return (
     <div>
@@ -39,6 +41,7 @@ export default function Ficha() {
         titulo="Idiomas e Proeficiencias"
         body={listaProeficiencias()}
       />
+      <TituloExpansivo titulo="Anotações" body={listaAnotacoes()} />
       <BotaoEditar />
     </div>
   )
