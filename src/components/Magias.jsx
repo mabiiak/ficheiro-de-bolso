@@ -121,7 +121,7 @@ export default function Magias() {
         <button
           onClick={() => {
             setFiltro('')
-            setLista(lista)
+            setLista(listaMagias)
           }}
         >
           x-limpar

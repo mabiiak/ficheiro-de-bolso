@@ -26,7 +26,7 @@ function Itens() {
     }
   }
 
-  const salvaPericias = () => {
+  const salvar = () => {
     setListaItens([...listaItens, { nome: chaveNome, valor: +chaveValor }])
 
     setChaveNome('')
@@ -56,7 +56,7 @@ function Itens() {
         <button
           onClick={() => {
             setFiltro('')
-            setLista(lista)
+            setLista(listaItens)
           }}
         >
           x-limpar

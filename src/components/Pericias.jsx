@@ -14,7 +14,7 @@ function Pericias() {
 
     if (name === 'nome') {
       setNomePericias(value)
-    } else if (name === 'modificador') {
+    } else {
       setModificador(value)
     }
   }
