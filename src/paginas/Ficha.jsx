@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../context/Provider'
 
 import Habilidades from '../components/Habilidades'
 import Pericias from '../components/Pericias'
@@ -14,6 +15,8 @@ import Proeficiencias from '../components/Proeficiencias'
 import Anotacoes from '../components/Anotacoes'
 
 export default function Ficha() {
+  const { descritivo } = useContext(Context)
+
   const habilidadesPericias = () => (
     <div id="setaGrid">
       <Habilidades />
@@ -28,7 +31,7 @@ export default function Ficha() {
 
   return (
     <div>
-      <Cabeçalho titulo={'Criar Personagem'} />
+      <Cabeçalho titulo={descritivo.nome || 'Criar Personagem'} />
       <Descritivo />
       <Status />
       <TituloExpansivo
