@@ -3,7 +3,7 @@ import { Context } from '../context/Provider'
 import './css/Magias.css'
 
 export default function Magias() {
-  const { listaMagias, setListaMagias, editando, editarLista } =
+  const { listaMagias, setListaMagias, editando, editarLista, excluirItem } =
     useContext(Context)
 
   const [tituloMagia, setTituloMagia] = useState('')
@@ -181,6 +181,13 @@ export default function Magias() {
               value={magia.comentario}
               readOnly={!editando}
             />
+            {editando && (
+              <button
+                onClick={() => excluirItem(index, listaMagias, setListaMagias)}
+              >
+                Excluir
+              </button>
+            )}
           </div>
         ))}
     </div>

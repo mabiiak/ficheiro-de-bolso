@@ -3,7 +3,7 @@ import { Context } from '../context/Provider'
 import './css/Pericias.css'
 
 function Itens() {
-  const { listaItens, setListaItens, editando, editarLista } =
+  const { listaItens, setListaItens, editando, editarLista, excluirItem } =
     useContext(Context)
 
   const [chaveNome, setChaveNome] = useState('')
@@ -84,7 +84,13 @@ function Itens() {
               disabled={!editando}
               key={`valor_${index}`}
             />
-            {editando && <button>Excluir</button>}
+            {editando && (
+              <button
+                onClick={() => excluirItem(index, listaItens, setListaItens)}
+              >
+                Excluir
+              </button>
+            )}
           </div>
         ))}
       <div className="criar-pericia">
@@ -102,7 +108,9 @@ function Itens() {
           placeholder="item"
           value={chaveNome}
         />
-        <button onClick={() => salvaPericias()}>+</button>
+        <button type="submit" onClick={() => salvar()}>
+          +
+        </button>
       </div>
     </div>
   )

@@ -3,8 +3,13 @@ import { Context } from '../context/Provider'
 import './css/Pericias.css'
 
 function Pericias() {
-  const { listaPericias, setListaPericias, editando, editarLista } =
-    useContext(Context)
+  const {
+    listaPericias,
+    setListaPericias,
+    editando,
+    editarLista,
+    excluirItem,
+  } = useContext(Context)
 
   const [nomePericias, setNomePericias] = useState('')
   const [modificador, setModificador] = useState('')
@@ -57,6 +62,15 @@ function Pericias() {
               value={pericia.valor}
               disabled={!editando}
             />
+            {editando && (
+              <button
+                onClick={() =>
+                  excluirItem(index, listaPericias, setListaPericias)
+                }
+              >
+                Excluir
+              </button>
+            )}
           </div>
         ))}
       <div className="criar-pericia">

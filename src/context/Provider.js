@@ -51,6 +51,11 @@ function Provider({ children }) {
     set(listaEditada)
   }
 
+  const excluirItem = (index, lista, setLista) => {
+    const novoLista = lista.filter((_item, i) => i !== index)
+    setLista(novoLista)
+  }
+
   useEffect(() => {
     const verSalvos = JSON.parse(localStorage.getItem('personagem'))
     if (verSalvos) {
@@ -84,6 +89,7 @@ function Provider({ children }) {
     listaProeficiencias,
     setListaProeficiencias,
     editarLista,
+    excluirItem,
   }
 
   return <Context.Provider value={estadosGlobais}>{children}</Context.Provider>
