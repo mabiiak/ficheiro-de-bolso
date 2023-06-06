@@ -31,8 +31,8 @@ input{
   width: 100%;
 }
 
-.clean-filter {
-  background-color: #A04F4F;
+.clean-filter, .btn-trash {
+  background-color: #EDEDED;
   border: none;
   height: 23px;
   width: 23px;

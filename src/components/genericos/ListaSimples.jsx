@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Context } from '../../context/Provider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import Filtro from './Filtro'
 
 function ListaSimples({ listaCompleta, setListaCompleta, itens }) {
@@ -93,8 +95,9 @@ function ListaSimples({ listaCompleta, setListaCompleta, itens }) {
                 onClick={() =>
                   excluirItem(index, listaCompleta, setListaCompleta)
                 }
+                className="btn-trash"
               >
-                Excluir
+                <FontAwesomeIcon icon={faTrash} style={{ color: '#A04F4F' }} />
               </button>
             )}
           </div>

@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Context } from '../context/Provider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import './css/Pericias.css'
 
 function Pericias() {
@@ -67,8 +69,9 @@ function Pericias() {
                 onClick={() =>
                   excluirItem(index, listaPericias, setListaPericias)
                 }
+                className="btn-trash"
               >
-                Excluir
+                <FontAwesomeIcon icon={faTrash} style={{ color: '#A04F4F' }} />
               </button>
             )}
           </div>

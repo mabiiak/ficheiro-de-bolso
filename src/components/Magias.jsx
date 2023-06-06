@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../context/Provider'
-import './css/Magias.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import Filtro from './genericos/Filtro'
+import './css/Magias.css'
 
 export default function Magias() {
   const { listaMagias, setListaMagias, editando, editarLista, excluirItem } =
@@ -162,8 +164,9 @@ export default function Magias() {
             {editando && (
               <button
                 onClick={() => excluirItem(index, listaMagias, setListaMagias)}
+                className="btn-trash"
               >
-                Excluir
+                <FontAwesomeIcon icon={faTrash} style={{ color: '#A04F4F' }} />
               </button>
             )}
           </div>

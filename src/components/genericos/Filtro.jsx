@@ -28,6 +28,7 @@ function Filtro({ listaCompleta, setListaExbicao, placeholder }) {
       />
       {filtro && (
         <button
+          style={{ backgroundColor: '#EDEDED' }}
           onClick={() => {
             setFiltro('')
             setListaExbicao(listaCompleta)
@@ -36,7 +37,7 @@ function Filtro({ listaCompleta, setListaExbicao, placeholder }) {
         >
           <FontAwesomeIcon
             icon={faFilterCircleXmark}
-            style={{ color: '#ededed' }}
+            style={{ color: '#A04F4F' }}
           />
         </button>
       )}

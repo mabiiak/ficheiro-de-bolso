@@ -47,11 +47,3 @@
 .criar-pericia input::placeholder {
     font-size: 10px;
 }
-.criar-pericia button {
-    background-color: #4F83A0;
-    border-left: solid #CDCDCD 3px;
-    border: none;
-    color: var(--main-background-color);
-    height: 25px;
-    width: 20%;
-}
