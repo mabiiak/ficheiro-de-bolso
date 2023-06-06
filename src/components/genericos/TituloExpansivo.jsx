@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './css/Titulos.css'
+import '../css/Titulos.css'
 
 function TituloExpansivo({ titulo, body }) {
   const [viewHidden, setViewHidden] = useState(true)
