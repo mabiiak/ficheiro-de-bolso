@@ -1,5 +1,4 @@
 #pericia {
-    /* margin-top: 3px; */
     width: 50%;
 }
 
@@ -33,14 +32,10 @@
 
 
 .criar-pericia input {
-    background-color: var(--main-background-color);
-    border: none;
     border-left: solid #CDCDCD 3px;
     height: 25px;
-    text-align: center;
 }
 .criar-pericia input[type=text] {
-    text-align: left;
     width: 60%;
 }
 .criar-pericia input[type=number] {
@@ -51,7 +46,6 @@
 }
 .criar-pericia input::placeholder {
     font-size: 10px;
-    padding: 5px;
 }
 .criar-pericia button {
     background-color: #4F83A0;

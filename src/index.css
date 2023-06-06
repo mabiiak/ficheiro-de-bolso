@@ -25,12 +25,15 @@ body {
 }
 
 input{
+  background-color: var(--main-background-color);
+  border: none;
+  padding: var(--padding-padrao);
   width: 100%;
 }
 
 .clean-filter {
- background-color: #A04F4F;
- height: 23px;
- width: 23px;
- border: none;
+  background-color: #A04F4F;
+  border: none;
+  height: 23px;
+  width: 23px;
 }
