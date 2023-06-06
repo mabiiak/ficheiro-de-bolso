@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../context/Provider'
 import './css/Magias.css'
+import Filtro from './genericos/Filtro'
 
 export default function Magias() {
   const { listaMagias, setListaMagias, editando, editarLista, excluirItem } =
@@ -10,7 +11,6 @@ export default function Magias() {
   const [nivelMagia, setNivelMagia] = useState('')
   const [comentarioMagia, setComentarioMagia] = useState('')
 
-  const [filtro, setFiltro] = useState('')
   const [lista, setLista] = useState(listaMagias)
 
   useEffect(() => {
@@ -49,17 +49,6 @@ export default function Magias() {
     setTituloMagia('')
     setNivelMagia('')
     setComentarioMagia('')
-  }
-
-  const filtrarMagia = (e) => {
-    const busca = e.target.value
-    setFiltro(busca)
-
-    const listaFiltrada = listaMagias.filter((magia) =>
-      Object.values(magia).some((valor) => valor.includes(busca)),
-    )
-
-    setLista(listaFiltrada)
   }
 
   return (
@@ -111,22 +100,11 @@ export default function Magias() {
           <input type="number" className="espacos-usados" />
         </div>
       </div>
-      <div>
-        <input
-          type="text"
-          placeholder="filtrar magia por nome ou nivel"
-          onChange={(e) => filtrarMagia(e)}
-          value={filtro}
-        />
-        <button
-          onClick={() => {
-            setFiltro('')
-            setLista(listaMagias)
-          }}
-        >
-          x-limpar
-        </button>
-      </div>
+      <Filtro
+        listaCompleta={listaMagias}
+        setListaExbicao={setLista}
+        placeholder={'magia ou nivel'}
+      />
       <div>
         <input
           placeholder="nivel da magia"

@@ -23,6 +23,14 @@ body {
   position: relative;
   height: 100vh;
 }
+
 input{
   width: 100%;
+}
+
+.clean-filter {
+ background-color: #A04F4F;
+ height: 23px;
+ width: 23px;
+ border: none;
 }
