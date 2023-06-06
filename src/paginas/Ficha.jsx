@@ -1,21 +1,27 @@
 import React, { useContext } from 'react'
 import { Context } from '../context/Provider'
 
-import Habilidades from '../components/Habilidades'
-import Pericias from '../components/Pericias'
+import TituloExpansivo from '../components/genericos/TituloExpansivo'
+import ListaSimples from '../components/genericos/ListaSimples'
+import BotaoEditar from '../components/BotaoEditar'
 
 import Cabeçalho from '../components/Cabeçalho'
-import TituloExpansivo from '../components/genericos/TituloExpansivo'
 import Descritivo from '../components/Descritivo'
 import Status from '../components/Status'
+import Habilidades from '../components/Habilidades'
+import Pericias from '../components/Pericias'
 import Magias from '../components/Magias'
-import BotaoEditar from '../components/BotaoEditar'
-import Itens from '../components/Itens'
-import Proeficiencias from '../components/Proeficiencias'
-import Anotacoes from '../components/Anotacoes'
 
 export default function Ficha() {
-  const { descritivo } = useContext(Context)
+  const {
+    descritivo,
+    listaItens,
+    setListaItens,
+    listaProeficiencias,
+    setListaProeficiencias,
+    listaAnotacoes,
+    setListaAnotacoes,
+  } = useContext(Context)
 
   const habilidadesPericias = () => (
     <div id="setaGrid">
@@ -25,9 +31,30 @@ export default function Ficha() {
   )
 
   const listaMagias = () => <Magias />
-  const listaItens = () => <Itens />
-  const listaProeficiencias = () => <Proeficiencias />
-  const listaAnotacoes = () => <Anotacoes />
+
+  const itens = () => (
+    <ListaSimples
+      listaCompleta={listaItens}
+      setListaCompleta={setListaItens}
+      itens={true}
+    />
+  )
+
+  const proeficiencias = () => (
+    <ListaSimples
+      listaCompleta={listaProeficiencias}
+      setListaCompleta={setListaProeficiencias}
+      itens={false}
+    />
+  )
+
+  const anotacoes = () => (
+    <ListaSimples
+      listaCompleta={listaAnotacoes}
+      setListaCompleta={setListaAnotacoes}
+      itens={false}
+    />
+  )
 
   return (
     <div>
@@ -39,12 +66,12 @@ export default function Ficha() {
         body={habilidadesPericias()}
       />
       <TituloExpansivo titulo="Magias" body={listaMagias()} />
-      <TituloExpansivo titulo="Itens" body={listaItens()} />
+      <TituloExpansivo titulo="Itens" body={itens()} />
       <TituloExpansivo
         titulo="Idiomas e Proeficiencias"
-        body={listaProeficiencias()}
+        body={proeficiencias()}
       />
-      <TituloExpansivo titulo="Anotações" body={listaAnotacoes()} />
+      <TituloExpansivo titulo="Anotações" body={anotacoes()} />
       <BotaoEditar />
     </div>
   )
