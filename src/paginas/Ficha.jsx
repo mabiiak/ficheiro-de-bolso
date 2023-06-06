@@ -5,7 +5,7 @@ import TituloExpansivo from '../components/genericos/TituloExpansivo'
 import ListaSimples from '../components/genericos/ListaSimples'
 import BotaoEditar from '../components/BotaoEditar'
 
-import Cabeçalho from '../components/Cabeçalho'
+import Header from '../components/genericos/Header'
 import Descritivo from '../components/Descritivo'
 import Status from '../components/Status'
 import Habilidades from '../components/Habilidades'
@@ -58,7 +58,7 @@ export default function Ficha() {
 
   return (
     <div>
-      <Cabeçalho titulo={descritivo.nome || 'Criar Personagem'} />
+      <Header titulo={descritivo.nome || 'Criar Personagem'} />
       <Descritivo />
       <Status />
       <TituloExpansivo

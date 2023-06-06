@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import './css/Header.css'
-import iconeGaleria from '../assets/gallery.svg'
+import '../css/Header.css'
+import iconeGaleria from '../../assets/gallery.svg'
 
-export default function Cabeçalho({ titulo }) {
+export default function Header({ titulo }) {
   const [viewHidden, setViewHidden] = useState(true)
 
   const openContent = () => {
