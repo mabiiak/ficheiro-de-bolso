@@ -9,7 +9,6 @@ import Header from '../components/genericos/Header'
 import Descritivo from '../components/Descritivo'
 import Status from '../components/Status'
 import Habilidades from '../components/Habilidades'
-import Pericias from '../components/Pericias'
 import Magias from '../components/Magias'
 
 export default function Ficha() {
@@ -17,6 +16,8 @@ export default function Ficha() {
     descritivo,
     listaItens,
     setListaItens,
+    listaPericias,
+    setListaPericias,
     listaProeficiencias,
     setListaProeficiencias,
     listaAnotacoes,
@@ -26,7 +27,11 @@ export default function Ficha() {
   const habilidadesPericias = () => (
     <div id="setaGrid">
       <Habilidades />
-      <Pericias />
+      <ListaSimples
+        listaCompleta={listaPericias}
+        setListaCompleta={setListaPericias}
+        name={'pericias'}
+      />
     </div>
   )
 
@@ -36,7 +41,7 @@ export default function Ficha() {
     <ListaSimples
       listaCompleta={listaItens}
       setListaCompleta={setListaItens}
-      itens={true}
+      name={'itens'}
     />
   )
 
@@ -44,7 +49,7 @@ export default function Ficha() {
     <ListaSimples
       listaCompleta={listaProeficiencias}
       setListaCompleta={setListaProeficiencias}
-      itens={false}
+      name={'proeficiencias'}
     />
   )
 
@@ -52,7 +57,7 @@ export default function Ficha() {
     <ListaSimples
       listaCompleta={listaAnotacoes}
       setListaCompleta={setListaAnotacoes}
-      itens={false}
+      name={'anotacoes'}
     />
   )
 

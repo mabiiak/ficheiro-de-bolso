@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Context } from '../../context/Provider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
 import Filtro from './Filtro'
 
-function ListaSimples({ listaCompleta, setListaCompleta, itens }) {
+function ListaSimples({ listaCompleta, setListaCompleta, name }) {
   const { editando, editarLista, excluirItem } = useContext(Context)
 
   const [chaveNome, setChaveNome] = useState('')
@@ -21,6 +21,8 @@ function ListaSimples({ listaCompleta, setListaCompleta, itens }) {
 
     if (name === 'nome') {
       setChaveNome(value)
+    } else {
+      setChaveValor(value)
     }
   }
 
@@ -36,18 +38,20 @@ function ListaSimples({ listaCompleta, setListaCompleta, itens }) {
 
   return (
     <div>
-      <Filtro
-        listaCompleta={listaCompleta}
-        setListaExbicao={setLista}
-        placeholder={'idiomas ou proeficiencias'}
-      />
+      {name !== 'pericias' && (
+        <Filtro
+          listaCompleta={listaCompleta}
+          setListaExbicao={setLista}
+          placeholder={`${name}`}
+        />
+      )}
       <div className="criar-pericia">
-        {editando && (
+        {(name === 'pericias' || name === 'itens') && (
           <input
             onChange={(e) => obterValor(e)}
             type="number"
             name="valor"
-            placeholder="quantidade"
+            placeholder={name === 'pericias' ? 'modificador' : 'quantidade'}
             value={chaveValor}
           />
         )}
@@ -60,11 +64,11 @@ function ListaSimples({ listaCompleta, setListaCompleta, itens }) {
           required
         />
         <button type="submit" onClick={() => salvar()}>
-          +
+          <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
       {lista &&
-        lista.map((pericia, index) => (
+        lista.map(({ nome, valor }, index) => (
           <div key={index} className="linhas-pericia criar-pericia">
             <input
               onChange={(e) =>
@@ -73,19 +77,19 @@ function ListaSimples({ listaCompleta, setListaCompleta, itens }) {
               type="text"
               name="nome"
               placeholder="nome item"
-              value={pericia.nome}
+              value={nome}
               disabled={!editando}
               key={`valor_${index}`}
             />
-            {itens && (
+            {name === 'itens' && (
               <input
                 onChange={(e) =>
                   editarLista(e, index, setListaCompleta, listaCompleta)
                 }
                 type="text"
                 name="nome"
-                placeholder="nome item"
-                value={pericia.nome}
+                placeholder="quantidade"
+                value={valor}
                 disabled={!editando}
                 key={`valor_${index}`}
               />
