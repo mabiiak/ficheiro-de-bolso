@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../context/Provider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
 import Filtro from './genericos/Filtro'
 import './css/Magias.css'
 import MagicSpace from './MagicSpace'
@@ -84,7 +84,9 @@ export default function Magias() {
           value={comentarioMagia}
         />
       </div>
-      <button onClick={() => salvarMagia()}>+</button>
+      <button onClick={() => salvarMagia()}>
+        <FontAwesomeIcon icon={faPlus} />
+      </button>
 
       {lista &&
         lista.map((magia, index) => (
