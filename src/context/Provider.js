@@ -37,6 +37,19 @@ function Provider({ children }) {
     mod: 0,
   })
 
+  const [espacosMagia, setEspacosMagia] = useState([
+    { nivel: 'truque', quantidade: 0 },
+    { nivel: 1, quantidade: 0, usados: 0 },
+    { nivel: 2, quantidade: 0, usados: 0 },
+    { nivel: 3, quantidade: 0, usados: 0 },
+    { nivel: 4, quantidade: 0, usados: 0 },
+    { nivel: 5, quantidade: 0, usados: 0 },
+    { nivel: 6, quantidade: 0, usados: 0 },
+    { nivel: 7, quantidade: 0, usados: 0 },
+    { nivel: 8, quantidade: 0, usados: 0 },
+    { nivel: 9, quantidade: 0, usados: 0 },
+  ])
+
   const [editando, setEditar] = useState(false)
   const [listaPericias, setListaPericias] = useState([])
   const [listaMagias, setListaMagias] = useState([])
@@ -64,6 +77,7 @@ function Provider({ children }) {
       setListaPericias(verSalvos.pericias)
       setDescritivo(verSalvos.descritivo)
       setStatus(verSalvos.status)
+      setEspacosMagia(verSalvos.espacosMagia)
       setListaMagias(verSalvos.magias)
       setListaItens(verSalvos.itens)
       setListaProeficiencias(verSalvos.proeficiencias)
@@ -83,6 +97,8 @@ function Provider({ children }) {
     moedas,
     setMoedas,
     status,
+    espacosMagia,
+    setEspacosMagia,
     setStatus,
     listaMagias,
     setListaMagias,

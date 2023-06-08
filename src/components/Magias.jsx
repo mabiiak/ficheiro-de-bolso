@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import Filtro from './genericos/Filtro'
 import './css/Magias.css'
+import MagicSpace from './MagicSpace'
 
 export default function Magias() {
   const { listaMagias, setListaMagias, editando, editarLista, excluirItem } =
@@ -55,53 +56,7 @@ export default function Magias() {
 
   return (
     <div>
-      <div className="espacos-de-magia">
-        <div>
-          <p>nivel 1</p>
-          <input type="number" className="quantidade-espacos" placeholder="0" />
-          <input type="number" className="espacos-usados" />
-        </div>
-        <div>
-          <p>nivel 2</p>
-          <input type="number" className="quantidade-espacos" placeholder="0" />
-          <input type="number" className="espacos-usados" />
-        </div>
-        <div>
-          <p>nivel 3</p>
-          <input type="number" className="quantidade-espacos" placeholder="0" />
-          <input type="number" className="espacos-usados" />
-        </div>
-        <div>
-          <p>nivel 4</p>
-          <input type="number" className="quantidade-espacos" placeholder="0" />
-          <input type="number" className="espacos-usados" />
-        </div>
-        <div>
-          <p>nivel 5</p>
-          <input type="number" className="quantidade-espacos" placeholder="0" />
-          <input type="number" className="espacos-usados" />
-        </div>
-        <div>
-          <p>nivel 6</p>
-          <input type="number" className="quantidade-espacos" placeholder="0" />
-          <input type="number" className="espacos-usados" />
-        </div>
-        <div>
-          <p>nivel 7</p>
-          <input type="number" className="quantidade-espacos" placeholder="0" />
-          <input type="number" className="espacos-usados" />
-        </div>
-        <div>
-          <p>nivel 8</p>
-          <input type="number" className="quantidade-espacos" placeholder="0" />
-          <input type="number" className="espacos-usados" />
-        </div>
-        <div>
-          <p>nivel 9</p>
-          <input type="number" className="quantidade-espacos" placeholder="0" />
-          <input type="number" className="espacos-usados" />
-        </div>
-      </div>
+      <MagicSpace />
       <Filtro
         listaCompleta={listaMagias}
         setListaExbicao={setLista}
