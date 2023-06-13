@@ -16,6 +16,7 @@ export default function Magias() {
 
   const [lista, setLista] = useState(listaMagias)
 
+  const [mensagemErro, setMensagemErro] = useState('')
   useEffect(() => {
     setLista(listaMagias)
   }, [listaMagias])
@@ -40,18 +41,29 @@ export default function Magias() {
   }
 
   const salvarMagia = () => {
-    setListaMagias([
-      ...listaMagias,
-      {
-        nivel: nivelMagia,
-        titulo: tituloMagia,
-        comentario: comentarioMagia,
-      },
-    ])
+    if (
+      nivelMagia.length < 3 ||
+      tituloMagia.length < 3 ||
+      comentarioMagia.length < 3
+    ) {
+      setMensagemErro('Preencha os campos antes de salvar uma magia')
+      setTimeout(() => {
+        setMensagemErro('')
+      }, '3000')
+    } else {
+      setListaMagias([
+        ...listaMagias,
+        {
+          nivel: nivelMagia,
+          titulo: tituloMagia,
+          comentario: comentarioMagia,
+        },
+      ])
 
-    setTituloMagia('')
-    setNivelMagia('')
-    setComentarioMagia('')
+      setTituloMagia('')
+      setNivelMagia('')
+      setComentarioMagia('')
+    }
   }
 
   return (

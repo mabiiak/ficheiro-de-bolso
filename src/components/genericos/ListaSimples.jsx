@@ -9,6 +9,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
 
   const [chaveNome, setChaveNome] = useState('')
   const [chaveValor, setChaveValor] = useState('')
+  const [mensagemErro, setMensagemErro] = useState('')
 
   const [lista, setLista] = useState()
 
@@ -27,13 +28,20 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
   }
 
   const salvar = () => {
-    setListaCompleta([
-      ...listaCompleta,
-      { nome: chaveNome, valor: +chaveValor },
-    ])
+    if (chaveNome.length < 3 || chaveValor.length < 3) {
+      setMensagemErro(`Preencha os campos antes de salvar novos(as) ${name}`)
+      setTimeout(() => {
+        setMensagemErro('')
+      }, '3000')
+    } else {
+      setListaCompleta([
+        ...listaCompleta,
+        { nome: chaveNome, valor: +chaveValor },
+      ])
 
-    setChaveNome('')
-    setChaveValor('')
+      setChaveNome('')
+      setChaveValor('')
+    }
   }
 
   return (
@@ -46,7 +54,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
         />
       )}
       <div className="criar-pericia">
-        {(name === 'pericias' || name === 'itens') && (
+        {(name === 'itens' || name === 'pericias') && (
           <input
             onChange={(e) => obterValor(e)}
             type="number"
@@ -63,6 +71,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
           value={chaveNome}
           required
         />
+        {mensagemErro && <p>{mensagemErro}</p>}
         <button type="submit" onClick={() => salvar()}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
@@ -81,7 +90,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
               disabled={!editando}
               key={`valor_${index}`}
             />
-            {name === 'itens' && (
+            {(name === 'itens' || name === 'pericias') && (
               <input
                 onChange={(e) =>
                   editarLista(e, index, setListaCompleta, listaCompleta)
