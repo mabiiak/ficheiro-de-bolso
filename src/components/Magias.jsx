@@ -16,10 +16,16 @@ export default function Magias() {
 
   const [lista, setLista] = useState(listaMagias)
 
+  const [viewHidden, setViewHidden] = useState(true)
   const [mensagemErro, setMensagemErro] = useState('')
+
   useEffect(() => {
     setLista(listaMagias)
   }, [listaMagias])
+
+  const openContent = () => {
+    setViewHidden(!viewHidden)
+  }
 
   const changeValue = ({ target }) => {
     const { value, name } = target
@@ -96,6 +102,7 @@ export default function Magias() {
           value={comentarioMagia}
         />
       </div>
+      {mensagemErro && <p>{mensagemErro}</p>}
       <button onClick={() => salvarMagia()}>
         <FontAwesomeIcon icon={faPlus} />
       </button>
@@ -103,32 +110,36 @@ export default function Magias() {
       {lista &&
         lista.map((magia, index) => (
           <div key={index}>
+            <div onClick={() => openContent()}>
+              <input
+                className="campoEditavel"
+                onChange={(e) =>
+                  editarLista(e, index, setListaMagias, listaMagias)
+                }
+                name="nivel"
+                value={magia.nivel}
+                disabled={!editando}
+              />
+
+              <input
+                className="campoEditavel"
+                onChange={(e) =>
+                  editarLista(e, index, setListaMagias, listaMagias)
+                }
+                name="titulo"
+                value={magia.titulo}
+                disabled={!editando}
+              />
+            </div>
             <input
-              className="campoEditavel"
-              onChange={(e) =>
-                editarLista(e, index, setListaMagias, listaMagias)
-              }
-              name="nivel"
-              value={magia.nivel}
-              readOnly={!editando}
-            />
-            <input
-              className="campoEditavel"
-              onChange={(e) =>
-                editarLista(e, index, setListaMagias, listaMagias)
-              }
-              name="titulo"
-              value={magia.titulo}
-              readOnly={!editando}
-            />
-            <input
+              hidden={viewHidden}
               className="campoEditavel"
               onChange={(e) =>
                 editarLista(e, index, setListaMagias, listaMagias)
               }
               name="comentario"
               value={magia.comentario}
-              readOnly={!editando}
+              disabled={!editando}
             />
             {editando && (
               <button
