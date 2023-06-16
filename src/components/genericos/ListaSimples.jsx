@@ -3,6 +3,7 @@ import { Context } from '../../context/Provider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
 import Filtro from './Filtro'
+import { inputVazio, valorMinimo, textoMinimo } from '../../utils/messages'
 import '../css/ListaSimples.css'
 
 function ListaSimples({ listaCompleta, setListaCompleta, name }) {
@@ -28,21 +29,36 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
     }
   }
 
-  const salvar = () => {
-    if (chaveNome.length < 3 || chaveValor.length < 3) {
-      setMensagemErro(`Preencha os campos antes de salvar novos(as) ${name}`)
-      setTimeout(() => {
-        setMensagemErro('')
-      }, '3000')
-    } else {
-      setListaCompleta([
-        ...listaCompleta,
-        { nome: chaveNome, valor: +chaveValor },
-      ])
+  const erroInputVazio = (erro, inputName) => {
+    setMensagemErro(`${erro} ${inputName || ''}`)
+    setTimeout(() => {
+      setMensagemErro('')
+    }, '3000')
+  }
 
-      setChaveNome('')
-      setChaveValor('')
+  const salvar = () => {
+    if (
+      (name === 'itens' || name === 'pericias') &&
+      (!chaveValor || Number(chaveValor) < 0)
+    ) {
+      return erroInputVazio(valorMinimo, null)
     }
+
+    if (!chaveNome) {
+      return erroInputVazio(inputVazio, name)
+    }
+
+    if (chaveNome.length < 3) {
+      return erroInputVazio(textoMinimo, name)
+    }
+
+    setListaCompleta([
+      ...listaCompleta,
+      { nome: chaveNome, valor: +chaveValor },
+    ])
+
+    setChaveNome('')
+    setChaveValor('')
   }
 
   return (
