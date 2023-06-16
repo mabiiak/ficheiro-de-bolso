@@ -1,0 +1,18 @@
+
+.criar, .pericia-display {
+    display: grid;
+    grid-template-areas: 'a b c';
+    grid-template-columns: 65% 20% auto;
+
+    gap: var(--gap-padrao);
+}
+
+.criar input:first-child,
+.pericia-display input:first-child {
+    grid-area: b;
+}
+
+.criar input::last-child,
+.pericia-display input:last-child {
+    grid-area: a;
+}

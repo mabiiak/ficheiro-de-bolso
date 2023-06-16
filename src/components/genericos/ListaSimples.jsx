@@ -3,6 +3,7 @@ import { Context } from '../../context/Provider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
 import Filtro from './Filtro'
+import '../css/ListaSimples.css'
 
 function ListaSimples({ listaCompleta, setListaCompleta, name }) {
   const { editando, editarLista, excluirItem } = useContext(Context)
@@ -53,7 +54,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
           placeholder={`${name}`}
         />
       )}
-      <div className="criar-pericia">
+      <div className="criar">
         {(name === 'itens' || name === 'pericias') && (
           <input
             onChange={(e) => obterValor(e)}
@@ -71,25 +72,18 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
           value={chaveNome}
           required
         />
-        {mensagemErro && <p>{mensagemErro}</p>}
         <button type="submit" onClick={() => salvar()}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
+        {mensagemErro && <p>{mensagemErro}</p>}
       </div>
       {lista &&
         lista.map(({ nome, valor }, index) => (
-          <div key={index} className="linhas-pericia criar-pericia">
-            <input
-              onChange={(e) =>
-                editarLista(e, index, setListaCompleta, listaCompleta)
-              }
-              type="text"
-              name="nome"
-              placeholder="nome item"
-              value={nome}
-              disabled={!editando}
-              key={`valor_${index}`}
-            />
+          <div
+            key={index}
+            // className="linhas-pericia criar-pericia"
+            className={name === 'pericias' && 'pericia-display'}
+          >
             {(name === 'itens' || name === 'pericias') && (
               <input
                 onChange={(e) =>
@@ -103,6 +97,17 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
                 key={`valor_${index}`}
               />
             )}
+            <input
+              onChange={(e) =>
+                editarLista(e, index, setListaCompleta, listaCompleta)
+              }
+              type="text"
+              name="nome"
+              placeholder="nome item"
+              value={nome}
+              disabled={!editando}
+              key={`valor_${index}`}
+            />
             {editando && (
               <button
                 onClick={() =>

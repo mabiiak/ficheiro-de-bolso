@@ -22,6 +22,9 @@
 
 #setaGrid {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap
+    gap: var(--gap-padrao);
+}
+
+#setaGrid > div:last-child {
+    width: 50%;
 }
