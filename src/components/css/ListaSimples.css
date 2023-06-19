@@ -1,18 +1,45 @@
-
-.criar, .pericia-display {
-    display: grid;
-    grid-template-areas: 'a b c';
-    grid-template-columns: 65% 20% auto;
-
+#lista-simples {
+    display: flex;
+    flex-direction: column;
     gap: var(--gap-padrao);
 }
 
-.criar input:first-child,
-.pericia-display input:first-child {
+.criar,
+#criar-triplo {
+    display: grid;
+    grid-template-areas: 'a b c';
+    grid-template-columns: auto;
+    gap: var(--gap-padrao);
+    width: 100%;
+}
+
+.criar button {
+    width: 23px;
+}
+
+#criar {
+    display: grid;
+    grid-template-areas: 'a b';
+    grid-template-columns: 92% auto;
+    gap: var(--gap-padrao);
+    width: 100%;
+}
+
+#criar-pericia,
+.display-pericia {
+    display: grid;
+    grid-template-areas: 'a b c';
+    grid-template-columns: 60% auto auto;
+    gap: var(--gap-padrao);
+    width: 100%;
+}
+
+#criar-pericia input:first-child,
+.display-pericia input:first-child {
     grid-area: b;
 }
 
-.criar input::last-child,
-.pericia-display input:last-child {
+#criar-pericia input::last-child,
+.display-pericia input:last-child {
     grid-area: a;
 }

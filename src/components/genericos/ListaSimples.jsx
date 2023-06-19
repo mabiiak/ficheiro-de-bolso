@@ -62,7 +62,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
   }
 
   return (
-    <div>
+    <div id="lista-simples">
       {name !== 'pericias' && (
         <Filtro
           listaCompleta={listaCompleta}
@@ -70,7 +70,16 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
           placeholder={`${name}`}
         />
       )}
-      <div className="criar">
+      <div
+        className="criar"
+        id={
+          name === 'pericias'
+            ? 'criar-pericia'
+            : name === 'itens'
+            ? 'criar-triplo'
+            : 'criar'
+        }
+      >
         {(name === 'itens' || name === 'pericias') && (
           <input
             onChange={(e) => obterValor(e)}
@@ -95,11 +104,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
       </div>
       {lista &&
         lista.map(({ nome, valor }, index) => (
-          <div
-            key={index}
-            // className="linhas-pericia criar-pericia"
-            className={name === 'pericias' && 'pericia-display'}
-          >
+          <div key={index} className={name === 'pericias' && 'display-pericia'}>
             {(name === 'itens' || name === 'pericias') && (
               <input
                 onChange={(e) =>
