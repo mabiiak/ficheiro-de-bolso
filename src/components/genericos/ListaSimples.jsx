@@ -70,41 +70,47 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
           placeholder={`${name}`}
         />
       )}
-      <div
-        className="criar"
-        id={
-          name === 'pericias'
-            ? 'criar-pericia'
-            : name === 'itens'
-            ? 'criar-triplo'
-            : 'criar'
-        }
-      >
-        {(name === 'itens' || name === 'pericias') && (
+      {editando && (
+        <div id={name === 'pericias' ? 'criar-pericia' : 'criar'}>
+          {(name === 'itens' || name === 'pericias') && (
+            <input
+              onChange={(e) => obterValor(e)}
+              type="number"
+              name="valor"
+              placeholder={name === 'pericias' ? 'modificador' : 'quantidade'}
+              value={chaveValor}
+              className={name === 'itens' && 'quantidade'}
+            />
+          )}
           <input
             onChange={(e) => obterValor(e)}
-            type="number"
-            name="valor"
-            placeholder={name === 'pericias' ? 'modificador' : 'quantidade'}
-            value={chaveValor}
+            type="text"
+            name="nome"
+            placeholder="item"
+            value={chaveNome}
+            required
           />
-        )}
-        <input
-          onChange={(e) => obterValor(e)}
-          type="text"
-          name="nome"
-          placeholder="item"
-          value={chaveNome}
-          required
-        />
-        <button type="submit" onClick={() => salvar()}>
-          <FontAwesomeIcon icon={faPlus} />
-        </button>
-        {mensagemErro && <p>{mensagemErro}</p>}
-      </div>
+          <button
+            type="submit"
+            onClick={() => salvar()}
+            id={name === 'itens' && 'btn-quantidade'}
+          >
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
+          {mensagemErro && <p>{mensagemErro}</p>}
+        </div>
+      )}
       {lista &&
         lista.map(({ nome, valor }, index) => (
-          <div key={index} className={name === 'pericias' && 'display-pericia'}>
+          <div
+            key={index}
+            id={name !== 'pericias' && 'display'}
+            className={
+              name === 'pericias'
+                ? 'display-pericia'
+                : name === 'itens' && 'display-itens'
+            }
+          >
             {(name === 'itens' || name === 'pericias') && (
               <input
                 onChange={(e) =>
@@ -116,6 +122,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
                 value={valor}
                 disabled={!editando}
                 key={`valor_${index}`}
+                className={name === 'itens' && 'quantidade'}
               />
             )}
             <input
@@ -135,6 +142,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
                   excluirItem(index, listaCompleta, setListaCompleta)
                 }
                 className="btn-trash"
+                id={name === 'itens' && 'btn-quantidade'}
               >
                 <FontAwesomeIcon icon={faTrash} style={{ color: '#A04F4F' }} />
               </button>

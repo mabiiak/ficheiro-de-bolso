@@ -4,25 +4,22 @@
     gap: var(--gap-padrao);
 }
 
-.criar,
-#criar-triplo {
-    display: grid;
-    grid-template-areas: 'a b c';
-    grid-template-columns: auto;
+#criar,
+#display {
+    display: flex;
     gap: var(--gap-padrao);
-    width: 100%;
 }
 
-.criar button {
-    width: 23px;
+#criar button,
+#criar-pericia button,
+#display button {
+    width: 35px;
+    border: none;
 }
 
-#criar {
-    display: grid;
-    grid-template-areas: 'a b';
-    grid-template-columns: 92% auto;
-    gap: var(--gap-padrao);
+#criar-pericia button {
     width: 100%;
+    border: none;
 }
 
 #criar-pericia,
@@ -34,6 +31,10 @@
     width: 100%;
 }
 
+#criar-pericia {
+    grid-template-columns: 60% auto 13.5%;
+}
+
 #criar-pericia input:first-child,
 .display-pericia input:first-child {
     grid-area: b;
@@ -42,4 +43,12 @@
 #criar-pericia input::last-child,
 .display-pericia input:last-child {
     grid-area: a;
+}
+
+.quantidade {
+    width: 100px;
+}
+
+#btn-quantidade {
+    width: 100px;
 }
