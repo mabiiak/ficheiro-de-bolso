@@ -80,75 +80,91 @@ export default function Magias() {
         setListaExbicao={setLista}
         placeholder={'magia ou nivel'}
       />
-      <div>
-        <input
-          placeholder="nivel da magia"
-          type="text"
-          onChange={(e) => changeValue(e)}
-          name="nivel"
-          value={nivelMagia}
-        />
-        <input
-          placeholder="titulo da magia"
-          type="text"
-          onChange={(e) => changeValue(e)}
-          name="titulo"
-          value={tituloMagia}
-        />
-        <input
-          placeholder="comentario da magia"
-          onChange={(e) => changeValue(e)}
-          name="comentario"
-          value={comentarioMagia}
-        />
-      </div>
-      {mensagemErro && <p>{mensagemErro}</p>}
-      <button onClick={() => salvarMagia()}>
-        <FontAwesomeIcon icon={faPlus} />
-      </button>
 
-      {lista &&
-        lista.map((magia, index) => (
-          <div key={index}>
-            <div onClick={() => openContent()}>
+      {editando && (
+        <div>
+          <div id="criar-magia">
+            <div>
               <input
-                className="campoEditavel"
-                onChange={(e) =>
-                  editarLista(e, index, setListaMagias, listaMagias)
-                }
+                placeholder="nivel da magia"
+                type="text"
+                onChange={(e) => changeValue(e)}
                 name="nivel"
-                value={magia.nivel}
-                disabled={!editando}
+                value={nivelMagia}
               />
-
               <input
-                className="campoEditavel"
-                onChange={(e) =>
-                  editarLista(e, index, setListaMagias, listaMagias)
-                }
+                placeholder="titulo da magia"
+                type="text"
+                onChange={(e) => changeValue(e)}
                 name="titulo"
-                value={magia.titulo}
-                disabled={!editando}
+                value={tituloMagia}
               />
             </div>
             <input
-              hidden={viewHidden}
+              placeholder="comentario da magia"
+              onChange={(e) => changeValue(e)}
+              name="comentario"
+              value={comentarioMagia}
+            />
+          </div>
+          {mensagemErro && <p>{mensagemErro}</p>}
+          <button onClick={() => salvarMagia()}>
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
+        </div>
+      )}
+
+      {lista &&
+        lista.map((magia, index) => (
+          <div key={index} id="panel-magic">
+            <input
               className="campoEditavel"
+              onClick={() => openContent()}
               onChange={(e) =>
                 editarLista(e, index, setListaMagias, listaMagias)
               }
-              name="comentario"
-              value={magia.comentario}
-              disabled={!editando}
+              name="nivel"
+              value={magia.nivel}
+              readOnly={!editando}
             />
-            {editando && (
-              <button
-                onClick={() => excluirItem(index, listaMagias, setListaMagias)}
-                className="btn-trash"
-              >
-                <FontAwesomeIcon icon={faTrash} style={{ color: '#A04F4F' }} />
-              </button>
-            )}
+            <div>
+              <div id="title-magic">
+                <input
+                  className="campoEditavel"
+                  onClick={() => openContent()}
+                  onChange={(e) =>
+                    editarLista(e, index, setListaMagias, listaMagias)
+                  }
+                  name="titulo"
+                  value={magia.titulo}
+                  readOnly={!editando}
+                />
+                {editando && (
+                  <button
+                    onClick={() =>
+                      excluirItem(index, listaMagias, setListaMagias)
+                    }
+                    className="btn-trash btn-trash-magic"
+                  >
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      style={{ color: '#A04F4F' }}
+                    />
+                  </button>
+                )}
+              </div>
+
+              <input
+                hidden={viewHidden}
+                className="campoEditavel"
+                onChange={(e) =>
+                  editarLista(e, index, setListaMagias, listaMagias)
+                }
+                name="comentario"
+                value={magia.comentario}
+                disabled={!editando}
+              />
+            </div>
           </div>
         ))}
     </div>

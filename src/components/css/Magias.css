@@ -1,21 +1,61 @@
 .espacos-de-magia{
     display: flex;
     gap: var(--gap-padrao);
+    margin-bottom: 3px;
 }
 .espacos-de-magia div{
     display: grid;
-    gap: var(--gap-padrao);
-    padding: .6rem;
+    padding: .2rem;
     border-radius: var(--border-radious);
     background: var(--main-background-color);
 }
 .espacos-de-magia p{
     font-size: .7rem;
     text-transform: capitalize;
+    padding: 1px;
 }
 .espacos-de-magia .quantidade-espacos{
     height: .7rem;
     font-size: .7rem;
     border: none;
     background: transparent;
+}
+
+#criar-magia {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-padrao);
+}
+#criar-magia div {
+    display: flex;
+}
+#criar-magia button {
+    width: 35px;
+    border: none;
+}
+
+#panel-magic {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3px;
+    width: 100%;
+    gap: var(--gap-padrao);
+
+}
+#panel-magic > div {
+    width: 100%;
+}
+#panel-magic > input {
+    flex-wrap: wrap;
+    background: var(--main-color);
+    color: var(--main-background-color);
+    width: 35%;
+}
+
+#title-magic {
+    display: flex;
+}
+
+.btn-trash-magic {
+    height: 25px;
 }
