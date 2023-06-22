@@ -32,7 +32,7 @@ export default function Descritivo() {
       </div>
       <div id="linha-tripla">
         <label>
-          Classe
+          Classe:
           <input
             name="classe"
             onChange={(e) => changeValue(e)}
@@ -42,7 +42,7 @@ export default function Descritivo() {
           />
         </label>
         <label>
-          Nivel
+          Nivel:
           <input
             name="nivel"
             onChange={(e) => changeValue(e)}
@@ -52,7 +52,7 @@ export default function Descritivo() {
           />
         </label>
         <label>
-          Raça
+          Raça:
           <input
             name="raca"
             onChange={(e) => changeValue(e)}
@@ -64,7 +64,17 @@ export default function Descritivo() {
       </div>
       <div id="linha-dupla">
         <label>
-          Antecedente
+          Movimento:
+          <input
+            name="movimento"
+            onChange={(e) => changeValue(e)}
+            type="number"
+            value={descritivo.movimento}
+            disabled={!editando}
+          />
+        </label>
+        <label>
+          Antec:
           <input
             name="antecedente"
             onChange={(e) => changeValue(e)}
@@ -74,7 +84,7 @@ export default function Descritivo() {
           />
         </label>
         <label>
-          Alinhamento
+          Alinh.
           <input
             name="alinhamento"
             onChange={(e) => changeValue(e)}

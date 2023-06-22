@@ -7,21 +7,21 @@ import './css/Magias.css'
 import MagicSpace from './MagicSpace'
 
 export default function Magias() {
-  const { listaMagias, setListaMagias, editando, editarLista, excluirItem } =
+  const { listaAtaquesMagias, setListaAtaquesMagias, editando, editarLista, excluirItem } =
     useContext(Context)
 
   const [tituloMagia, setTituloMagia] = useState('')
   const [nivelMagia, setNivelMagia] = useState('')
   const [comentarioMagia, setComentarioMagia] = useState('')
 
-  const [lista, setLista] = useState(listaMagias)
+  const [lista, setLista] = useState(listaAtaquesMagias)
 
   const [viewHidden, setViewHidden] = useState(true)
   const [mensagemErro, setMensagemErro] = useState('')
 
   useEffect(() => {
-    setLista(listaMagias)
-  }, [listaMagias])
+    setLista(listaAtaquesMagias)
+  }, [listaAtaquesMagias])
 
   const openContent = () => {
     setViewHidden(!viewHidden)
@@ -57,8 +57,8 @@ export default function Magias() {
         setMensagemErro('')
       }, '3000')
     } else {
-      setListaMagias([
-        ...listaMagias,
+      setListaAtaquesMagias([
+        ...listaAtaquesMagias,
         {
           nivel: nivelMagia,
           titulo: tituloMagia,
@@ -76,9 +76,9 @@ export default function Magias() {
     <div>
       <MagicSpace />
       <Filtro
-        listaCompleta={listaMagias}
+        listaCompleta={listaAtaquesMagias}
         setListaExbicao={setLista}
-        placeholder={'magia ou nivel'}
+        placeholder={'palavra chave'}
       />
 
       {editando && (
@@ -121,7 +121,7 @@ export default function Magias() {
               className="campoEditavel"
               onClick={() => openContent()}
               onChange={(e) =>
-                editarLista(e, index, setListaMagias, listaMagias)
+                editarLista(e, index, setListaAtaquesMagias, listaAtaquesMagias)
               }
               name="nivel"
               value={magia.nivel}
@@ -133,7 +133,7 @@ export default function Magias() {
                   className="campoEditavel"
                   onClick={() => openContent()}
                   onChange={(e) =>
-                    editarLista(e, index, setListaMagias, listaMagias)
+                    editarLista(e, index, setListaAtaquesMagias, listaAtaquesMagias)
                   }
                   name="titulo"
                   value={magia.titulo}
@@ -142,7 +142,7 @@ export default function Magias() {
                 {editando && (
                   <button
                     onClick={() =>
-                      excluirItem(index, listaMagias, setListaMagias)
+                      excluirItem(index, listaAtaquesMagias, setListaAtaquesMagias)
                     }
                     className="btn-trash btn-trash-magic"
                   >
@@ -158,7 +158,7 @@ export default function Magias() {
                 hidden={viewHidden}
                 className="campoEditavel"
                 onChange={(e) =>
-                  editarLista(e, index, setListaMagias, listaMagias)
+                  editarLista(e, index, setListaAtaquesMagias, listaAtaquesMagias)
                 }
                 name="comentario"
                 value={magia.comentario}

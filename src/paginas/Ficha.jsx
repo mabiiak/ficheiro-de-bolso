@@ -22,6 +22,8 @@ export default function Ficha() {
     setListaProeficiencias,
     listaAnotacoes,
     setListaAnotacoes,
+    setAnotacaoLivre,
+    anotacaoLivre,
   } = useContext(Context)
 
   const habilidadesPericias = () => (
@@ -35,7 +37,7 @@ export default function Ficha() {
     </div>
   )
 
-  const listaMagias = () => <Magias />
+  const listaAtaquesMagias = () => <Magias />
 
   const itens = () => (
     <ListaSimples
@@ -54,11 +56,15 @@ export default function Ficha() {
   )
 
   const anotacoes = () => (
-    <ListaSimples
-      listaCompleta={listaAnotacoes}
-      setListaCompleta={setListaAnotacoes}
-      name={'anotacoes'}
-    />
+    <div>
+      <ListaSimples
+        listaCompleta={listaAnotacoes}
+        setListaCompleta={setListaAnotacoes}
+        name={'anotacoes'}
+      />
+      <textarea onChange={(e) => setAnotacaoLivre(e.target.value)} value={anotacaoLivre}>{anotacaoLivre}</textarea>
+    </div>
+
   )
 
   return (
@@ -70,7 +76,7 @@ export default function Ficha() {
         titulo="Habilidades e Pericias"
         body={habilidadesPericias()}
       />
-      <TituloExpansivo titulo="Magias" body={listaMagias()} />
+      <TituloExpansivo titulo="Ataques e Magias" body={listaAtaquesMagias()} />
       <TituloExpansivo titulo="Itens" body={itens()} />
       <TituloExpansivo
         titulo="Idiomas e Proeficiencias"

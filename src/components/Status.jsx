@@ -55,7 +55,7 @@ export default function Status() {
         />
       </div>
       <div className="status-triplo">
-        <p className="linha-descritiva">MOD</p>
+        <p className="linha-descritiva">PROEF</p>
         <input
           className="status-input"
           onChange={(e) => changeValue(e)}

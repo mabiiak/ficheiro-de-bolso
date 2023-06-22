@@ -52,10 +52,11 @@ function Provider({ children }) {
 
   const [editando, setEditar] = useState(false)
   const [listaPericias, setListaPericias] = useState([])
-  const [listaMagias, setListaMagias] = useState([])
+  const [listaAtaquesMagias, setListaAtaquesMagias] = useState([])
   const [listaItens, setListaItens] = useState([])
   const [listaProeficiencias, setListaProeficiencias] = useState([])
   const [listaAnotacoes, setListaAnotacoes] = useState([])
+  const [anotacaoLivre, setAnotacaoLivre] = useState([])
 
   const editarLista = (e, index, set, lista) => {
     const { value, name } = e.target
@@ -78,10 +79,11 @@ function Provider({ children }) {
       setDescritivo(verSalvos.descritivo)
       setStatus(verSalvos.status)
       setEspacosMagia(verSalvos.espacosMagia)
-      setListaMagias(verSalvos.magias)
+      setListaAtaquesMagias(verSalvos.magias)
       setListaItens(verSalvos.itens)
       setListaProeficiencias(verSalvos.proeficiencias)
       setListaAnotacoes(verSalvos.anotacoes)
+      setAnotacaoLivre(verSalvos.anotacaoLivre)
     }
   }, [])
 
@@ -100,14 +102,16 @@ function Provider({ children }) {
     espacosMagia,
     setEspacosMagia,
     setStatus,
-    listaMagias,
-    setListaMagias,
+    listaAtaquesMagias,
+    setListaAtaquesMagias,
     listaItens,
     setListaItens,
     listaProeficiencias,
     setListaProeficiencias,
     listaAnotacoes,
     setListaAnotacoes,
+    anotacaoLivre,
+    setAnotacaoLivre,
     editarLista,
     excluirItem,
   }
