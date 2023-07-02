@@ -70,7 +70,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
           placeholder={`${name}`}
         />
       )}
-      {editando && (
+      {editando || (!lista || !lista.length) && (
         <div id={name === 'pericias' ? 'criar-pericia' : 'criar'}>
           {(name === 'itens' || name === 'pericias') && (
             <input
