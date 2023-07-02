@@ -12,12 +12,8 @@
     display: flex;
     height: 40px;
     margin-bottom: 3px;
-    text-align: left;
-}
-
-#titulos > p {
-    margin-left: 15px;
     text-transform: uppercase;
+    padding: var(--padding-padrao);
 }
 
 #setaGrid {
@@ -28,3 +24,24 @@
 #setaGrid > div:last-child {
     width: 50%;
 }
+
+/* .expandable {
+  overflow: hidden;
+}
+ */
+
+/* .expandable {
+  overflow: hidden;
+  height: fit-content;
+}
+
+.expandable div {
+  max-height: 0;
+  overflow: hidden;
+
+  transition: max-height 0.1s;
+}
+
+.expandable.expanded div {
+  max-height: fit-content;
+} */
