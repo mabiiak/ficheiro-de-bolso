@@ -117,7 +117,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
                   editarLista(e, index, setListaCompleta, listaCompleta)
                 }
                 type="text"
-                name="nome"
+                name="valor"
                 placeholder="quantidade"
                 value={valor}
                 disabled={!editando}
