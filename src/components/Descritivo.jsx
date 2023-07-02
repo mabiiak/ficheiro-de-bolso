@@ -49,6 +49,7 @@ export default function Descritivo() {
             type="number"
             value={descritivo.nivel}
             disabled={!editando}
+            placeholder='0'
           />
         </label>
         <label>
@@ -71,6 +72,7 @@ export default function Descritivo() {
             type="number"
             value={descritivo.movimento}
             disabled={!editando}
+            placeholder='0'
           />
         </label>
         <label>
@@ -104,6 +106,7 @@ export default function Descritivo() {
             type="number"
             value={moedas.po}
             disabled={!editando}
+            placeholder='0'
           />
         </label>
         <label>
@@ -115,6 +118,7 @@ export default function Descritivo() {
             type="number"
             value={moedas.pp}
             disabled={!editando}
+            placeholder='0'
           />
         </label>
         <label>
@@ -126,6 +130,7 @@ export default function Descritivo() {
             type="number"
             value={moedas.pc}
             disabled={!editando}
+            placeholder='0'
           />
         </label>
         <label>
@@ -137,6 +142,7 @@ export default function Descritivo() {
             type="number"
             value={moedas.pb}
             disabled={!editando}
+            placeholder='0'
           />
         </label>
       </div>

@@ -7,34 +7,34 @@ function Provider({ children }) {
   const [descritivo, setDescritivo] = useState({
     nome: '',
     classe: '',
-    nivel: 0,
+    nivel: '',
     raca: '',
     antecedente: '',
     alinhamento: '',
   })
 
   const [moedas, setMoedas] = useState({
-    po: 0,
-    pp: 0,
-    pc: 0,
-    pb: 0,
+    po: "",
+    pp: "",
+    pc: "",
+    pb: "",
   })
 
   const [defineHabilidades, setHabilidades] = useState({
-    forca: 0,
-    destreza: 0,
-    constituicao: 0,
-    inteligencia: 0,
-    sabedoria: 0,
-    carisma: 0,
+    forca: "",
+    destreza: "",
+    constituicao: "",
+    inteligencia: "",
+    sabedoria: "",
+    carisma: "",
   })
 
   const [status, setStatus] = useState({
-    hpAtual: 0,
-    hpMax: 0,
-    cd: 0,
-    ca: 0,
-    mod: 0,
+    hpAtual: "",
+    hpMax: "",
+    cd: "",
+    ca: "",
+    mod: "",
   })
 
   const [espacosMagia, setEspacosMagia] = useState([

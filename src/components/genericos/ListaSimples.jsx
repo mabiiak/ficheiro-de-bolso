@@ -48,7 +48,7 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
       return erroInputVazio(inputVazio, name)
     }
 
-    if (chaveNome.length < 3) {
+    if (chaveNome.length < 1) {
       return erroInputVazio(textoMinimo, name)
     }
 
@@ -77,8 +77,9 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
               onChange={(e) => obterValor(e)}
               type="number"
               name="valor"
-              placeholder={name === 'pericias' ? 'modificador' : 'quantidade'}
+              // placeholder={name === 'pericias' ? 'modificador' : 'quantidade'}
               value={chaveValor}
+              placeholder='0'
               className={name === 'itens' && 'quantidade'}
             />
           )}

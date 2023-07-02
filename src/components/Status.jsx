@@ -21,6 +21,7 @@ export default function Status() {
             value={status.hpMax}
             name="hpMax"
             disabled={!editando}
+            placeholder='0'
           />
         </div>
         <input
@@ -30,6 +31,7 @@ export default function Status() {
           value={status.hpAtual}
           name="hpAtual"
           disabled={!editando}
+          placeholder='0'
         />
       </div>
       <div className="status-triplo">
@@ -41,6 +43,7 @@ export default function Status() {
           value={status.cd}
           name="cd"
           disabled={!editando}
+          placeholder='0'
         />
       </div>
       <div className="status-triplo">
@@ -52,6 +55,7 @@ export default function Status() {
           value={status.ca}
           name="ca"
           disabled={!editando}
+          placeholder='0'
         />
       </div>
       <div className="status-triplo">
@@ -63,6 +67,7 @@ export default function Status() {
           value={status.mod}
           name="mod"
           disabled={!editando}
+          placeholder='0'
         />
       </div>
     </section>
