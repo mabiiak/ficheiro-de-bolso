@@ -82,7 +82,6 @@ export default function Magias() {
         />
       </div>
 
-      {editando && (
         <div>
           <div id="criar-magia">
             <div>
@@ -115,7 +114,6 @@ export default function Magias() {
           </div>
           {mensagemErro && <p>{mensagemErro}</p>}
         </div>
-      )}
 
       {lista &&
         lista.map((magia, index) => (
