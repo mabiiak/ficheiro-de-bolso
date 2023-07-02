@@ -48,7 +48,6 @@ export default function Magias() {
 
   const salvarMagia = () => {
     if (
-      nivelMagia.length < 3 ||
       tituloMagia.length < 3 ||
       comentarioMagia.length < 3
     ) {
@@ -102,17 +101,19 @@ export default function Magias() {
                 value={tituloMagia}
               />
             </div>
+            <div>
             <input
               placeholder="comentario da magia"
               onChange={(e) => changeValue(e)}
               name="comentario"
               value={comentarioMagia}
             />
+            <button onClick={() => salvarMagia()}>
+              <FontAwesomeIcon icon={faPlus} />
+            </button>
+            </div>
           </div>
           {mensagemErro && <p>{mensagemErro}</p>}
-          <button onClick={() => salvarMagia()}>
-            <FontAwesomeIcon icon={faPlus} />
-          </button>
         </div>
       )}
 
