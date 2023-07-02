@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Context } from '../context/Provider'
 
 import TituloExpansivo from '../components/genericos/TituloExpansivo'
@@ -62,13 +62,12 @@ export default function Ficha() {
         setListaCompleta={setListaAnotacoes}
         name={'anotacoes'}
       />
-      <textarea onChange={(e) => setAnotacaoLivre(e.target.value)} value={anotacaoLivre}>{anotacaoLivre}</textarea>
+      {/* <textarea onChange={(e) => setAnotacaoLivre(e.target.value)} value={anotacaoLivre}/> */}
     </div>
-
   )
 
   return (
-    <div>
+    <div style={{ paddingBottom: '4rem' }}>
       <Header titulo={descritivo.nome || 'Criar Personagem'} />
       <Descritivo />
       <Status />

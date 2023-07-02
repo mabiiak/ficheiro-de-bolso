@@ -75,11 +75,13 @@ export default function Magias() {
   return (
     <div>
       <MagicSpace />
-      <Filtro
-        listaCompleta={listaAtaquesMagias}
-        setListaExbicao={setLista}
-        placeholder={'palavra chave'}
-      />
+      <div style={{ paddingBottom: '3px'}}>
+        <Filtro
+          listaCompleta={listaAtaquesMagias}
+          setListaExbicao={setLista}
+          placeholder={'palavra chave'}
+        />
+      </div>
 
       {editando && (
         <div>

@@ -52,6 +52,7 @@ export default function BotaoEditar() {
     <button
       id="btn-edicao"
       name={editando ? 'Salvar' : 'Editar'}
+      style={{ backgroundColor: editando ? '#257023' : '#b33131'}}
       onClick={(e) => habilitarEdicao(e)}
     >
       {editando ? (
