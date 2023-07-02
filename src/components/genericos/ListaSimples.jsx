@@ -70,7 +70,6 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
           placeholder={`${name}`}
         />
       )}
-      {editando || (!lista || !lista.length) && (
         <div id={name === 'pericias' ? 'criar-pericia' : 'criar'}>
           {(name === 'itens' || name === 'pericias') && (
             <input
@@ -100,7 +99,6 @@ function ListaSimples({ listaCompleta, setListaCompleta, name }) {
           </button>
           {mensagemErro && <p>{mensagemErro}</p>}
         </div>
-      )}
       {lista &&
         lista.map(({ nome, valor }, index) => (
           <div
